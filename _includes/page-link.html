@@ -1,0 +1,18 @@
+<style>
+  .page-link a {
+    display: block;
+    width: 100%;
+    padding: 8px 0;
+    color: inherit;
+    text-decoration: none;
+  }
+</style>
+
+<div class="page-link">
+  {%- if include.next_link -%}
+    <a href="{{ include.next_link }}" id="next">다음 글: {{ include.next_page_name }}</a>
+  {%- endif -%}
+  {%- if include.prev_link -%}
+    <a href="{{ include.prev_link }}" id="prev">이전 글: {{ include.prev_page_name }}</a>
+  {%- endif -%}
+</div>

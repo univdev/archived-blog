@@ -19,6 +19,15 @@ layout: default
   <div class="post">
     {{ content }}
   </div>
+  <div class="navigation-container">
+    {%
+      include page-link.html
+      prev_link=page.previous.url
+      next_link=page.next.url
+      prev_page_name=page.previous.title
+      next_page_name=page.next.title
+    %}
+  </div>
   {%- if site.plainwhite.disqus_shortname -%}
   <div id="disqus_thread" style="margin-top:25px"></div>
   <script>
