@@ -1,0 +1,235 @@
+I"�v<h1 id="class">Class</h1>
+<p><code class="language-plaintext highlighter-rouge">typescript</code>를 쓰는 이유라고 할 수 있는 <code class="language-plaintext highlighter-rouge">class</code>이다.<br />
+<code class="language-plaintext highlighter-rouge">javascript</code>에서도 <code class="language-plaintext highlighter-rouge">class</code>문법이 이미 있긴 하지만 우리가 원하는 객체지향 프로그래밍 언어 수준까지는 지원해주지 않기 때문에 <code class="language-plaintext highlighter-rouge">javascript</code>에서의 <code class="language-plaintext highlighter-rouge">class</code>는 그저 좀 더 구체적인 객체처럼 다루기 위해서 쓰는 것에 불과했기 때문이다.</p>
+<h2 id="field">Field</h2>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Point</span> <span class="p">{</span>
+  <span class="nl">x</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+  <span class="nl">y</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">const</span> <span class="nx">pt</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Point</span><span class="p">();</span>
+</code></pre></div></div>
+<p>객체의 타입 선언과 비슷한 문법으로 <code class="language-plaintext highlighter-rouge">class</code>의 <code class="language-plaintext highlighter-rouge">field</code> 정의를 할 수 있다. <em>(다만 위 코드는 오류가 날 것이다.)</em></p>
+<h2 id="초기화-생략">초기화 생략</h2>
+<p>위 코드를 직접 실행 해봤다면 에러가 표시 되는 것을 확인할 수 있었을 것이다.<br />
+<code class="language-plaintext highlighter-rouge">class</code>를 구성하고 있는 변수들은 반드시 <code class="language-plaintext highlighter-rouge">constructor</code>에서 초기화를 진행해줘야 하기 때문이다.</p>
+
+<p>만약 멤버 변수들의 정의만을 하고 싶을 뿐, <code class="language-plaintext highlighter-rouge">constructor</code>에서 초기화를 진행하고 싶지 않다면 <strong>확정 할당 연산자(Non-null assertion operator)</strong>를 사용한다. <code class="language-plaintext highlighter-rouge">!</code></p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Point</span> <span class="p">{</span>
+  <span class="nx">x</span><span class="o">!</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+  <span class="nx">y</span><span class="o">!</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">const</span> <span class="nx">pt</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Point</span><span class="p">();</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">pt</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span> <span class="nx">pt</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span> <span class="c1">// undefined undefined</span>
+</code></pre></div></div>
+<p>멤버 변수 이름 뒤에 <code class="language-plaintext highlighter-rouge">!</code>를 붙이면 <code class="language-plaintext highlighter-rouge">constructor</code>에서 초기화를 해야하는 의무를 선택사항으로 만들 수 있다.<br />
+다만 초기화를 진행하지 않으면 <code class="language-plaintext highlighter-rouge">undefined</code>가 나오게 된다.</p>
+<h2 id="readonly">Readonly</h2>
+<p>멤버 변수에 <code class="language-plaintext highlighter-rouge">readonly</code> 속성을 사용할 수도 있다.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Greeter</span> <span class="p">{</span>
+  <span class="k">readonly</span> <span class="nx">name</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">world</span><span class="dl">"</span><span class="p">;</span>
+ 
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">otherName</span><span class="p">?:</span> <span class="kr">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">otherName</span> <span class="o">!==</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">otherName</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+ 
+  <span class="nx">err</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">not ok</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// Cannot assign to 'name' because it is a read-only property.</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">const</span> <span class="nx">g</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Greeter</span><span class="p">();</span>
+<span class="nx">g</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">also not ok</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// Cannot assign to 'name' because it is a read-only property.</span>
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">readonly</code> 속성이 주어진 멤버 변수는 클래스 내부에서도, 외부에서도 수정이 불가능한 상태가 된다.</p>
+<h2 id="constructor">Constructor</h2>
+<p>어느 객체지향 언어처럼 생성자 역시 지원한다.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Point</span> <span class="p">{</span>
+  <span class="nl">x</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+  <span class="nl">y</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+ 
+  <span class="c1">// Normal signature with defaults</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">x</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">y</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">constructor</code>라는 이름으로 클래스 내에서 함수를 정의하면 해당 함수는 생성자로서 취급받는다.</p>
+<h3 id="생성자란">생성자란?</h3>
+<p><code class="language-plaintext highlighter-rouge">const point: Point = new Point();</code> 처럼 <code class="language-plaintext highlighter-rouge">new</code>연산자를 통해 <code class="language-plaintext highlighter-rouge">Instance</code>를 생성할 때 실행되는 함수이다.<br />
+<code class="language-plaintext highlighter-rouge">new Point(1, 2)</code>와 같이 파라미터를 넘겨주면 <code class="language-plaintext highlighter-rouge">constructor</code> 함수를 통해 받을 수 있다.</p>
+<h3 id="constructor-overloading">Constructor overloading</h3>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Point</span> <span class="p">{</span>
+  <span class="c1">// Overloads</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">x</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="nx">y</span><span class="p">:</span> <span class="kr">string</span><span class="p">);</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">s</span><span class="p">:</span> <span class="kr">string</span><span class="p">);</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">xs</span><span class="p">:</span> <span class="kr">any</span><span class="p">,</span> <span class="nx">y</span><span class="p">?:</span> <span class="kr">any</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// TBD</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>일반 멤버 함수와 마찬가지로 <code class="language-plaintext highlighter-rouge">constructor</code>역시 <code class="language-plaintext highlighter-rouge">Overloading</code>이 가능하다.<br />
+필요하다면 <code class="language-plaintext highlighter-rouge">Union Type</code>도 사용할 수 있다.</p>
+<h2 id="super-call">Super call</h2>
+<p>다른 객체지향 언어를 써 본 사람이라면 역시 <code class="language-plaintext highlighter-rouge">super</code>도 이해하기 쉬울 것이다.<br />
+클래스는 <code class="language-plaintext highlighter-rouge">exntends</code>를 지원한다. 그렇다면 자식 클래스의 인스턴스를 생성하게 되면 부모 클래스의 <code class="language-plaintext highlighter-rouge">constructor</code>는 언제 실행되는 걸까?</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Base</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">()</span> <span class="p">{}</span>
+<span class="p">}</span>
+<span class="kd">class</span> <span class="nx">Children</span> <span class="kd">extends</span> <span class="nx">Base</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">()</span> <span class="p">{}</span>
+<span class="p">}</span>
+<span class="kd">const</span> <span class="nx">childrenInstance</span><span class="p">:</span> <span class="nx">Children</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Children</span><span class="p">();</span>
+</code></pre></div></div>
+<p>정확히 말하면 부모 클래스의 <code class="language-plaintext highlighter-rouge">constructor</code>는 영원히 실행되지 않는다.<br />
+자식 클래스의 인스턴스를 생성한 것이지 부모의 인스턴스를 생성한 것이 아니기 때문이다.<br />
+<strong>다만</strong> 자식 클래스에서 부모 클래스의 생성자를 호출해야만 하는 상황이 생길 수가 있는데, 이럴 경우에 부모의 생성자를 호출하는 함수가 <code class="language-plaintext highlighter-rouge">super</code>함수이다.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Base</span> <span class="p">{</span>
+  <span class="nx">k</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="p">}</span>
+ 
+<span class="kd">class</span> <span class="nx">Derived</span> <span class="kd">extends</span> <span class="nx">Base</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">super</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">super()</code> 형태로 사용하면 부모의 <code class="language-plaintext highlighter-rouge">constructor</code>를 호출하게 된다.
+<code class="language-plaintext highlighter-rouge">super</code>를 실행하는 타이밍을 조정하는 식으로 부모 <code class="language-plaintext highlighter-rouge">constructor</code>의 실행 주기를 마음대로 할 수 있긴 하지만 가급적이면 <code class="language-plaintext highlighter-rouge">constructor</code>의 <strong>제일 첫 줄</strong>에 선언하는게 베스트이다.<br />
+<code class="language-plaintext highlighter-rouge">super</code>를 실행하지 않으면 부모의 멤버 변수를 참조할 수 없기 때문이다.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Base</span> <span class="p">{</span>
+  <span class="nx">k</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="p">}</span>
+ 
+<span class="kd">class</span> <span class="nx">Derived</span> <span class="kd">extends</span> <span class="nx">Base</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">k</span><span class="p">);</span> <span class="c1">// Error</span>
+    <span class="k">super</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h2 id="getter">Getter</h2>
+<p><code class="language-plaintext highlighter-rouge">Javascript</code>에서 <code class="language-plaintext highlighter-rouge">Array.length</code>를 수정해 본 적이 있으면 알겠지만 실제로 값을 재정의 할 때는 아무런 에러가 나오지 않는데도 값을 재정의 한 다음 출력을 해보면 내가 정의한 값이 아닌 올바른 값이 나오는 것을 볼 수 있다.</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 3;</span>
+<span class="nx">arr</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="mi">777</span><span class="p">;</span> <span class="c1">// OK</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 3;</span>
+</code></pre></div></div>
+<p>이런 <code class="language-plaintext highlighter-rouge">Attribute</code>는 어떻게 만드는걸까?<br />
+답은 <code class="language-plaintext highlighter-rouge">Getter</code>이다.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Stack</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="na">items</span><span class="p">:</span> <span class="nx">T</span><span class="p">[];</span>
+  <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">items</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="p">}</span>
+  <span class="k">public</span> <span class="nx">push</span><span class="p">(</span><span class="na">item</span><span class="p">:</span> <span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">public</span> <span class="kd">get</span> <span class="nx">length</span><span class="p">():</span> <span class="kr">number</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">stack</span><span class="p">:</span> <span class="nx">Stack</span><span class="o">&lt;</span><span class="kr">number</span><span class="o">&gt;</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Stack</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stack</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 0</span>
+<span class="nx">stack</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stack</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 1</span>
+<span class="nx">stack</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="mi">777</span><span class="p">;</span> <span class="c1">// Cannot assign to 'length' because it is a read-only property.(2540)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stack</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+</code></pre></div></div>
+<p>함수 앞에 <code class="language-plaintext highlighter-rouge">get</code> 접근자를 붙이면 해당 함수 이름으로 속성을 꺼낼 때 <code class="language-plaintext highlighter-rouge">get</code> 접근자 함수 안에 있는 로직에 따라 값을 꺼내오게 된다.<br />
+하지만 <code class="language-plaintext highlighter-rouge">javascript</code>에서의 예제와는 다르게 <code class="language-plaintext highlighter-rouge">read-only</code> 이슈가 발생하여 수정이 되지는 않는다.</p>
+<h2 id="setter">Setter</h2>
+<p><code class="language-plaintext highlighter-rouge">Getter</code>는 원하는 값을 실제로 존재하지 않는 멤버 변수명을 통해 얻어올 수 있는 방법임을 알았다.
+그러면 <code class="language-plaintext highlighter-rouge">Setter</code>도 대충 감이 올텐데, <code class="language-plaintext highlighter-rouge">Setter</code>는 <strong>대입 연산자(=)</strong>를 통해 <code class="language-plaintext highlighter-rouge">Attribute</code>에 값을 대입할 때, 정직하게 대입만 하는 것이 아닌 특정 로직을 거쳐서 값에 변조를 줄 때 사용한다.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Square</span> <span class="p">{</span>
+    <span class="nx">x</span><span class="o">!</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+    <span class="nx">y</span><span class="o">!</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+    <span class="k">public</span> <span class="kd">set</span> <span class="nx">square</span><span class="p">(</span><span class="nx">area</span><span class="p">:</span> <span class="kr">number</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="nx">area</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="nx">area</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">rect</span><span class="p">:</span> <span class="nx">Square</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Square</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">rect</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span> <span class="nx">rect</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span> <span class="c1">// undefined undefined</span>
+<span class="nx">rect</span><span class="p">.</span><span class="nx">square</span> <span class="o">=</span> <span class="mi">25</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">rect</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span> <span class="nx">rect</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span> <span class="c1">// 5, 5</span>
+</code></pre></div></div>
+<p>정사각형의 넓이를 입력받아서 <code class="language-plaintext highlighter-rouge">x</code>와 <code class="language-plaintext highlighter-rouge">y</code>의 길이를 구하는 클래스이다.<br />
+다만 한가지 다른 점이 있다면, <code class="language-plaintext highlighter-rouge">x</code>와 <code class="language-plaintext highlighter-rouge">y</code>를 직접 초기화하지 않았음에도 불구하고 <code class="language-plaintext highlighter-rouge">x</code>와 <code class="language-plaintext highlighter-rouge">y</code>의 값이 설정 되었다는 점이다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">set</code> 설정자 통해 함수를 정의하면 해당 함수 이름을 속성처럼 사용할 수 있다.<br />
+속성에 값을 대입하면 그 값을 <code class="language-plaintext highlighter-rouge">parameter</code>로 넘기게 되고, <code class="language-plaintext highlighter-rouge">set</code>함수를 실행하게 되는 것이다.</p>
+<h2 id="index-signatures">Index Signatures</h2>
+<p>여기서 일반 객체와 마찬가지로 <code class="language-plaintext highlighter-rouge">Index Signatures</code>를 사용할 수 있다.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">MyClass</span> <span class="p">{</span>
+  <span class="p">[</span><span class="nx">s</span><span class="p">:</span> <span class="kr">string</span><span class="p">]:</span> <span class="nx">boolean</span> <span class="o">|</span> <span class="p">((</span><span class="nx">s</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">boolean</span><span class="p">);</span>
+ 
+  <span class="nx">check</span><span class="p">(</span><span class="nx">s</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">[</span><span class="nx">s</span><span class="p">]</span> <span class="k">as</span> <span class="nx">boolean</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h2 id="class-heritage">Class Heritage</h2>
+<p><code class="language-plaintext highlighter-rouge">Class</code>도 <code class="language-plaintext highlighter-rouge">interface</code>를 통해 멤버들의 범위를 정해줄 수 있다.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">Pingable</span> <span class="p">{</span>
+  <span class="nx">ping</span><span class="p">():</span> <span class="k">void</span><span class="p">;</span>
+<span class="p">}</span>
+ 
+<span class="kd">class</span> <span class="nx">Sonar</span> <span class="k">implements</span> <span class="nx">Pingable</span> <span class="p">{</span>
+  <span class="nx">ping</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">ping!</span><span class="dl">"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+ 
+<span class="kd">class</span> <span class="nx">Ball</span> <span class="k">implements</span> <span class="nx">Pingable</span> <span class="p">{</span>
+  <span class="nx">pong</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// Error.</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">pong!</span><span class="dl">"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h2 id="overriding">Overriding</h2>
+<p>다른 객체지향 언어처럼 <code class="language-plaintext highlighter-rouge">Overriding</code>을 지원한다.<br />
+부모 클래스가 갖고있는 멤버 함수와 동일한 이름으로 설정 하되, <code class="language-plaintext highlighter-rouge">parameter</code>의 <code class="language-plaintext highlighter-rouge">type</code>이나 갯수를 다르게 설정하는 방식으로 사용한다.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Base</span> <span class="p">{</span>
+  <span class="nx">greet</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hello, world!</span><span class="dl">"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+ 
+<span class="kd">class</span> <span class="nx">Derived</span> <span class="kd">extends</span> <span class="nx">Base</span> <span class="p">{</span>
+  <span class="nx">greet</span><span class="p">(</span><span class="nx">name</span><span class="p">?:</span> <span class="kr">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">name</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">super</span><span class="p">.</span><span class="nx">greet</span><span class="p">();</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Hello, </span><span class="p">${</span><span class="nx">name</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">()}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+ 
+<span class="kd">const</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Derived</span><span class="p">();</span>
+<span class="nx">d</span><span class="p">.</span><span class="nx">greet</span><span class="p">();</span>
+<span class="nx">d</span><span class="p">.</span><span class="nx">greet</span><span class="p">(</span><span class="dl">"</span><span class="s2">reader</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">super</code> 키워드를 통해 부모의 메소드에 접근 할 수도 있다.</p>
+<h2 id="relationship">Relationship</h2>
+<p><code class="language-plaintext highlighter-rouge">A</code>클래스와 <code class="language-plaintext highlighter-rouge">B</code>클래스가 서로 다르다는 것을 <code class="language-plaintext highlighter-rouge">Typescript</code>는 어떻게 구분할까?<br />
+일반 객체와 마찬가지로 <code class="language-plaintext highlighter-rouge">Class</code> 구성하는 멤버들을 비교하여 구분한다.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Point1</span> <span class="p">{</span>
+  <span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="nx">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+ 
+<span class="kd">class</span> <span class="nx">Point2</span> <span class="p">{</span>
+  <span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="nx">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+ 
+<span class="c1">// OK</span>
+<span class="kd">const</span> <span class="nx">p</span><span class="p">:</span> <span class="nx">Point1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Point2</span><span class="p">();</span>
+</code></pre></div></div>
+<p>그렇기 때문에 위 코드가 성립 된다.</p>
+:ET

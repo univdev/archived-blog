@@ -1,0 +1,66 @@
+I"N<h1 id="generic-function">Generic Function</h1>
+<p>만약 당신이 <code class="language-plaintext highlighter-rouge">Java</code>를 익숙하게 사용하는 개발자라면 이 섹션은 이해하기 정말 쉬울 것이다. 다른 언어에서 흔히들 <code class="language-plaintext highlighter-rouge">Generic</code>이라고 부르는 것과 동일하기 때문이다.<br />
+예를 들어, 당신이 <code class="language-plaintext highlighter-rouge">Stack</code> 자료구조를 직접 구현한다고 해보자.<br />
+<code class="language-plaintext highlighter-rouge">Stack</code>에는 정말로 많은 <code class="language-plaintext highlighter-rouge">Type</code>의 데이터가 들어간다. <code class="language-plaintext highlighter-rouge">Number</code> <code class="language-plaintext highlighter-rouge">String</code> <code class="language-plaintext highlighter-rouge">Boolean</code>와 같은 모든 유형을 포함해야 한다.</p>
+<pre><code class="language-Typescript">class Stack {
+  private data = [];
+  public push(item) {
+    this.data.push(item);
+  }
+  public pop() {
+    return this.data.pop();
+  }
+}
+</code></pre>
+<p>물론 이런 형태로 작성할 수는 있겠으나, 우리가 원하는 <code class="language-plaintext highlighter-rouge">Typescript</code>의 형태를 띄려면 각 <code class="language-plaintext highlighter-rouge">Method</code>와 <code class="language-plaintext highlighter-rouge">Paramter</code>의 <code class="language-plaintext highlighter-rouge">Return Type</code>을 정의해야 한다.<br />
+만약 제네릭이 없다면</p>
+<pre><code class="language-Typescript">class NumberStack {
+  private data: number[] = [];
+  public push(item: number) {
+    this.data.push(item);
+  }
+  public pop(): number {
+    return this.data.pop();
+  }
+}
+</code></pre>
+<pre><code class="language-Typescript">class StringStack {
+  private data: string[] = [];
+  public push(item: string) {
+    this.data.push(item);
+  }
+  public pop(): string {
+    return this.data.pop();
+  }
+}
+/// ...
+</code></pre>
+<p>이런 식으로 모든 유형에 대응하는 StackClass를 정의해야 할 것이다.<br />
+이건 사실 말이 안되므로, 제네릭을 사용해서 구현을 하면 아래와 같이 표현할 수 있다.</p>
+<pre><code class="language-Typescript">class Stack&lt;T&gt; {
+  private data: T[] = [];
+  public push(item: T) {
+      this.data.push(item);
+  }
+  public pop(): T | null {
+      return this.data.pop() || null;
+  }
+}
+</code></pre>
+<p><code class="language-plaintext highlighter-rouge">class</code> 이름 뒤에 <code class="language-plaintext highlighter-rouge">&lt;T&gt;</code>가 추가 되었다.<br />
+이는 <code class="language-plaintext highlighter-rouge">Type</code>을 받을 수 있는 <code class="language-plaintext highlighter-rouge">Type Variable</code>이라고 불린다. 제네릭 타입의 객체를 사용할 때는 아래와 같이 사용하면 된다.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">stack</span><span class="p">:</span> <span class="nx">Stack</span><span class="o">&lt;</span><span class="kr">number</span><span class="o">&gt;</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Stack</span><span class="o">&lt;</span><span class="kr">number</span><span class="o">&gt;</span><span class="p">();</span>
+</code></pre></div></div>
+<p>이렇게 선언하면 <code class="language-plaintext highlighter-rouge">number</code>타입으로 구성 된 <code class="language-plaintext highlighter-rouge">Stack</code> 클래스를 사용할 수 있다.</p>
+<h2 id="예시">예시</h2>
+<p>```typescript
+class Stack<T> {
+    private data: T[] = [];
+    public push(item: T) {
+        this.data.push(item);
+    }
+    public pop(): T | null {
+        return this.data.pop() || null;
+    }
+}</T></p>
+:ET

@@ -1,27 +1,159 @@
 [
   
     {
-      "title"    : "01 Typescript를 왜 쓸까",
-      "title-lower"    : "01 typescript를 왜 쓸까",
+      "title"    : "999. Typescript 에러 모음",
+      "title-lower"    : "999. typescript 에러 모음",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "TypescriptNote",
+      "tags"     : "",
+      "url"      : "/typescript/note/2022/01/14/999.typescript_%EC%97%90%EB%9F%AC.html",
+      "date"     : "2022-01-14 00:00:00 +0900",
+      "content"     : "Typescript 관련 컴파일 오류목록Cannot find module ‘typescript’https://stackoverflow.com/questions/44611526/how-to-fix-cannot-find-module-typescript-in-angular-4npm install -g typescriptnpm link typescriptRe..."
+    } ,
+  
+    {
+      "title"    : "11. Enum",
+      "title-lower"    : "11. enum",
       "sub-titile" : "",
       "sub-titile-lower" : "",
       "categories" : "TypescriptBasic",
       "tags"     : "",
-      "url"      : "/typescript/basic/2022/01/07/01-Typescript-%EA%B8%B0%EC%B4%88.html",
-      "date"     : "2022-01-07 00:00:00 +0900",
+      "url"      : "/typescript/basic/2022/01/14/11.enum.html",
+      "date"     : "2022-01-14 00:00:00 +0900",
+      "content"     : "Enum개요프로그래밍을 배우다보면 Enumeration 자료형에 대해서 들어본 적이 있을 것이다.일정 범위 안에 들어오는 값만을 고를 수 있는 자료형으로, 열거형이라고 부른다. 아래 예제를 보자.const paint = (brush) =&amp;gt; {  if (brush === &#39;square&#39;) return console.log(&#..."
+    } ,
+  
+    {
+      "title"    : "10. Class",
+      "title-lower"    : "10. class",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "TypescriptBasic",
+      "tags"     : "",
+      "url"      : "/typescript/basic/2022/01/14/10.class.html",
+      "date"     : "2022-01-14 00:00:00 +0900",
+      "content"     : "Classtypescript를 쓰는 이유라고 할 수 있는 class이다.javascript에서도 class문법이 이미 있긴 하지만 우리가 원하는 객체지향 프로그래밍 언어 수준까지는 지원해주지 않기 때문에 javascript에서의 class는 그저 좀 더 구체적인 객체처럼 다루기 위해서 쓰는 것에 불과했기 때문이다.Fieldclass Point {  x..."
+    } ,
+  
+    {
+      "title"    : "09. Extending Types",
+      "title-lower"    : "09. extending types",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "TypescriptBasic",
+      "tags"     : "",
+      "url"      : "/typescript/basic/2022/01/14/09.extending_types.html",
+      "date"     : "2022-01-14 00:00:00 +0900",
+      "content"     : "Extending Typesclass가 상속이 되듯이, type도 상속이 가능하다.type BasicAddress = {  name?: string;  street: string;  city: string;  country: string;  postalCode: string;} interface AddressWithUnit extends BasicAd..."
+    } ,
+  
+    {
+      "title"    : "08. Index Signatures",
+      "title-lower"    : "08. index signatures",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "TypescriptBasic",
+      "tags"     : "",
+      "url"      : "/typescript/basic/2022/01/14/08.index_signatures.html",
+      "date"     : "2022-01-14 00:00:00 +0900",
+      "content"     : "Index Signature아주 가끔 객체 안에 들어있는 속성들의 key를 특정짓지 못하는 경우가 있을 수 있다.그런 경우 객체 속성의 key를 모르는 상태이기 때문에 Type 정의에도 지장이 생긴다. 이럴 경우에는 인덱스 서명 방식을 사용할 수 있다.type Props = {  [key: number]: string | boolean | Functi..."
+    } ,
+  
+    {
+      "title"    : "07. Readonly",
+      "title-lower"    : "07. readonly",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "TypescriptBasic",
+      "tags"     : "",
+      "url"      : "/typescript/basic/2022/01/14/07.readonly.html",
+      "date"     : "2022-01-14 00:00:00 +0900",
+      "content"     : "ReadonlyJavascript에서 객체를 구성하는 수많은 Attributes는 Writable하면서 Readable하다.따지고 보면 수정하면 안되는 Attribute마저도 수정이 가능하다.const test = &#39;good&#39;;console.log(test.length); // 4;test.length = 777; // successco..."
+    } ,
+  
+    {
+      "title"    : "06. Overloading",
+      "title-lower"    : "06. overloading",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "TypescriptBasic",
+      "tags"     : "",
+      "url"      : "/typescript/basic/2022/01/14/06.overloading.html",
+      "date"     : "2022-01-14 00:00:00 +0900",
+      "content"     : "Function Overloading다른 언어를 써 본 경험이 있다면 Overloading가 뭔지 알 것이다.하지만 Javascript가 시작 언어고, 다른 언어를 전혀 써본 경험이 없다면 생소할 수 있는데, 쉽게 말해서 동일한 함수에 넘기는 Parameter로 실행 로직을 달리하는 방법이라고 보면 된다.만약에 매개변수로 a b c라는 number를 ..."
+    } ,
+  
+    {
+      "title"    : "05. Optional Paramters",
+      "title-lower"    : "05. optional paramters",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "TypescriptBasic",
+      "tags"     : "",
+      "url"      : "/typescript/basic/2022/01/14/05.optional_parameters.html",
+      "date"     : "2022-01-14 00:00:00 +0900",
+      "content"     : "Optional ParametersJavascript에서는 함수의 선언부에서 표기 된 Parameters 갯수를 전부 충족시키지 않은 실행이 이루어져도 에러가 나지 않는다.const consolePrint = (a, b, c) =&amp;gt; {  console.log(a, b, c);};consolePrint(1, 2); // 1, 2, undef..."
+    } ,
+  
+    {
+      "title"    : "04. Generic",
+      "title-lower"    : "04. generic",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "TypescriptBasic",
+      "tags"     : "",
+      "url"      : "/typescript/basic/2022/01/14/04.generic.html",
+      "date"     : "2022-01-14 00:00:00 +0900",
+      "content"     : "Generic Function만약 당신이 Java를 익숙하게 사용하는 개발자라면 이 섹션은 이해하기 정말 쉬울 것이다. 다른 언어에서 흔히들 Generic이라고 부르는 것과 동일하기 때문이다.예를 들어, 당신이 Stack 자료구조를 직접 구현한다고 해보자.Stack에는 정말로 많은 Type의 데이터가 들어간다. Number String Boolean와..."
+    } ,
+  
+    {
+      "title"    : "03. Signatures",
+      "title-lower"    : "03. signatures",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "TypescriptBasic",
+      "tags"     : "",
+      "url"      : "/typescript/basic/2022/01/14/03.signatures.html",
+      "date"     : "2022-01-14 00:00:00 +0900",
+      "content"     : "type DescribableFunction = {  description: string;  (someArg: number): boolean;};function doSomething(fn: DescribableFunction) {  console.log(fn.description + &quot; returned &quot; + fn(6));}위 예제는..."
+    } ,
+  
+    {
+      "title"    : "02. Function Type Expression",
+      "title-lower"    : "02. function type expression",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "TypescriptBasic",
+      "tags"     : "",
+      "url"      : "/typescript/basic/2022/01/14/02.function_type_expression.html",
+      "date"     : "2022-01-14 00:00:00 +0900",
+      "content"     : "function greeter(fn: (a: string) =&amp;gt; void) {  fn(&quot;Hello, World&quot;);}function printToConsole(s: string) {  console.log(s);} greeter(printToConsole);위 예제처럼 매개변수로 함수가 넘어오는 경우, 함수 갖고있는 매개..."
+    } ,
+  
+    {
+      "title"    : "01. Typescript를 왜 쓸까",
+      "title-lower"    : "01. typescript를 왜 쓸까",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "TypescriptBasic",
+      "tags"     : "",
+      "url"      : "/typescript/basic/2022/01/14/01.Typescript-%EA%B8%B0%EC%B4%88.html",
+      "date"     : "2022-01-14 00:00:00 +0900",
       "content"     : "Type의 불확실성 제거Javascript를 사용해봤다면 아래와 같은 문제를 만난 적이 있을 것이다.message.toLowerCase();message();방대한 소스코드에서 저 부분만을 딱 잘라서 보여줬다고 가정할 때, 위 코드를 실행하면 어떤 결과가 나올 것 같은가?그건 아무도 모른다. 왜나하면 message가 프로그램 내부에서 어떻게 정의 되고..."
     } ,
   
     {
-      "title"    : "Integrating razorpay into your webapp",
-      "title-lower"    : "integrating razorpay into your webapp",
+      "title"    : "00. Typescript 개요",
+      "title-lower"    : "00. typescript 개요",
       "sub-titile" : "",
       "sub-titile-lower" : "",
-      "categories" : "JavascriptNodeJS",
+      "categories" : "TypescriptBasic",
       "tags"     : "",
-      "url"      : "/javascript/nodejs/2019/03/24/welcome-to-jekyll.html",
-      "date"     : "2019-03-24 00:33:36 +0900",
-      "content"     : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ..."
+      "url"      : "/typescript/basic/2022/01/14/00.Typescript-%EA%B0%9C%EC%9A%94.html",
+      "date"     : "2022-01-14 00:00:00 +0900",
+      "content"     : "Typescript개요Typescript는 Javascript의 수많은 개량 버전 중 하나이고, 그 중 가장 많은 사랑을 받고 있다.Javascript에서는 지원하지 않는 객제지향 문법을 지원하며, Javascript보다 엄격한 문법 검사를 시행하기에 에러가 상대적으로 적은 코드를 작성할 수 있다.또한, Javascript는 변수 간 Type 변환이 ..."
     } 
   
 ]

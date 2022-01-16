@@ -1,0 +1,20 @@
+I"�<h1 id="typescript">Typescript</h1>
+<h2 id="개요">개요</h2>
+<p><code class="language-plaintext highlighter-rouge">Typescript</code>는 <code class="language-plaintext highlighter-rouge">Javascript</code>의 수많은 개량 버전 중 하나이고, 그 중 가장 많은 사랑을 받고 있다.<br />
+<code class="language-plaintext highlighter-rouge">Javascript</code>에서는 지원하지 않는 객제지향 문법을 지원하며, <code class="language-plaintext highlighter-rouge">Javascript</code>보다 엄격한 문법 검사를 시행하기에 에러가 상대적으로 적은 코드를 작성할 수 있다.</p>
+
+<p>또한, <code class="language-plaintext highlighter-rouge">Javascript</code>는 변수 간 <code class="language-plaintext highlighter-rouge">Type</code> 변환이 정말 자유롭다.<br />
+별다른 조치를 취하지도 않았는데 값을 대입한 것 만으로도 <code class="language-plaintext highlighter-rouge">string</code>, <code class="language-plaintext highlighter-rouge">number</code>, <code class="language-plaintext highlighter-rouge">Boolean</code>을 제 집 안방마냥 드나드는 자율성을 가졌다.<br />
+하지만 이로 인한 문제도 생겼는데, 각 <code class="language-plaintext highlighter-rouge">Type</code>마다 존재하는 고유의 <code class="language-plaintext highlighter-rouge">Property</code>와 <code class="language-plaintext highlighter-rouge">Method</code>가 존재하는지 확신할 수가 없다는 점이다.<br />
+변수에 값만 대입하면 <code class="language-plaintext highlighter-rouge">Type</code>이 바뀌어버리니, 기존에는 문자열이였던 변수의 <code class="language-plaintext highlighter-rouge">.length</code>를 참조하는 로직을 사용할 때 조차 정말로 저 변수가 <code class="language-plaintext highlighter-rouge">string</code>이 맞는지 확인을 해야한다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">Typescript</code>는 이름답게 <code class="language-plaintext highlighter-rouge">Type</code>을 기초로 만들어지다보니 매개변수나 변수에 들어갈 <code class="language-plaintext highlighter-rouge">Type</code>을 확정지을 수 있다.</p>
+<h2 id="장점">장점</h2>
+<ul>
+  <li>보다 엄격한 문법으로 에러가 적은 코드를 만들 수 있다.</li>
+  <li>객체지향 언어에서나 볼 수 있었던 <code class="language-plaintext highlighter-rouge">class</code> <code class="language-plaintext highlighter-rouge">interface</code> <code class="language-plaintext highlighter-rouge">extends</code> <code class="language-plaintext highlighter-rouge">implement</code> 등을 사용할 수 있다.</li>
+  <li><code class="language-plaintext highlighter-rouge">Javascript</code>의 슈퍼셋이다보니 <code class="language-plaintext highlighter-rouge">Typescript</code>안에서 기존 <code class="language-plaintext highlighter-rouge">Javascript</code>문법을 완전 지원한다.</li>
+  <li><code class="language-plaintext highlighter-rouge">Typescript</code> 컴파일러를 통해 나오는 결과물은 최종적으로 <code class="language-plaintext highlighter-rouge">Javascript</code>에 완전 대응되기 때문에 호환성 문제도 걱정 없다.</li>
+  <li>위에서 기재한 이유로 기존 <code class="language-plaintext highlighter-rouge">Javascript</code> 프로젝트의 <code class="language-plaintext highlighter-rouge">Migration</code>도 매우 간단하다.</li>
+</ul>
+:ET

@@ -1,0 +1,9 @@
+I"�<h1 id="optional-parameters">Optional Parameters</h1>
+<p><code class="language-plaintext highlighter-rouge">Javascript</code>에서는 함수의 선언부에서 표기 된 <code class="language-plaintext highlighter-rouge">Parameters</code> 갯수를 전부 충족시키지 않은 실행이 이루어져도 에러가 나지 않는다.</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">consolePrint</span> <span class="o">=</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">);</span>
+<span class="p">};</span>
+<span class="nx">consolePrint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// 1, 2, undefined</span>
+</code></pre></div></div>
+<p>그저 <code class="language-plaintext highlighter-rouge">undefined</code>로 출력이 될 뿐 에러 요소는 아니다.</p>
+:ET

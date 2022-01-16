@@ -1,0 +1,11 @@
+I"�<h1 id="readonly">Readonly</h1>
+<p><code class="language-plaintext highlighter-rouge">Javascript</code>에서 객체를 구성하는 수많은 <code class="language-plaintext highlighter-rouge">Attributes</code>는 <code class="language-plaintext highlighter-rouge">Writable</code>하면서 <code class="language-plaintext highlighter-rouge">Readable</code>하다.<br />
+따지고 보면 수정하면 안되는 <code class="language-plaintext highlighter-rouge">Attribute</code>마저도 수정이 가능하다.</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">test</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">good</span><span class="dl">'</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">test</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 4;</span>
+<span class="nx">test</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="mi">777</span><span class="p">;</span> <span class="c1">// success</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">test</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 4;</span>
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">string</code>이나 <code class="language-plaintext highlighter-rouge">array</code>의 <code class="language-plaintext highlighter-rouge">length</code> Attribute에 직접 값을 입력하는게 가능하다.<br />
+물론 실제로 값이 변경되어 엉뚱한 값이 나오는 것은 아니지만 값을 대입 할 때 아무런 오류 없이 통과가 된다는 것 자체가 원하는 그림이 아니다. <code class="language-plaintext highlighter-rouge">Javascript</code>는 기본적으로 <code class="language-plaintext highlighter-rouge">const</code>로 정의 된 값이 아니라면 재정의가 가능하기 때문에 생기는 이슈이다.</p>
+:ET

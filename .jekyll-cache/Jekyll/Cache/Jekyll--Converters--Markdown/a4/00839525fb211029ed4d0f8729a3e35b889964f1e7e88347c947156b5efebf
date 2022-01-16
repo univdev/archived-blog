@@ -1,0 +1,6 @@
+I".<h1 id="typescript-관련-컴파일-오류">Typescript 관련 컴파일 오류</h1>
+<h2 id="목록">목록</h2>
+<h3 id="cannot-find-module-typescript">Cannot find module ‘typescript’</h3>
+<p>```
+https://stackoverflow.com/questions/44611526/how-to-fix-cannot-find-module-typescript-in-angular-4</p>
+:ET

@@ -1,0 +1,56 @@
+I"D$<h1 id="enum">Enum</h1>
+<h2 id="개요">개요</h2>
+<p>프로그래밍을 배우다보면 <code class="language-plaintext highlighter-rouge">Enumeration</code> 자료형에 대해서 들어본 적이 있을 것이다.<br />
+일정 범위 안에 들어오는 값만을 고를 수 있는 자료형으로, <strong>열거형</strong>이라고 부른다. 아래 예제를 보자.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">paint</span> <span class="o">=</span> <span class="p">(</span><span class="nx">brush</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">brush</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">square</span><span class="dl">'</span><span class="p">)</span> <span class="k">return</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">square</span><span class="dl">'</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">brush</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">circle</span><span class="dl">'</span><span class="p">)</span> <span class="k">return</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">circle</span><span class="dl">'</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">nothing</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+<p>그림판에서 <code class="language-plaintext highlighter-rouge">brush</code>의 모양에 따라 그려지는 방식을 다르게 한다고 하면 위와 같이 구현이 가능할 것이다.<br />
+하지만 매개변수의 <code class="language-plaintext highlighter-rouge">brush</code>의 값은 <code class="language-plaintext highlighter-rouge">square</code> <code class="language-plaintext highlighter-rouge">circle</code> 둘 중 하나여야만 정상적으로 동작한다. 물론 그 외 값이 들어와도 <code class="language-plaintext highlighter-rouge">nothing</code> 처리를 해뒀기 때문에 에러는 나지 않지만 <code class="language-plaintext highlighter-rouge">nothing</code>이 표시가 되는 일은 없어야 한다.</p>
+
+<p>그럴 때 열거형을 사용할 수 있다.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="kr">enum</span> <span class="nx">BrushType</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">SQUARE</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">square</span><span class="dl">'</span><span class="p">,</span>
+  <span class="nx">CIRCLE</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">circle</span><span class="dl">'</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="kd">const</span> <span class="nx">paint</span> <span class="o">=</span> <span class="p">(</span><span class="nx">brush</span><span class="p">:</span> <span class="nx">BrushType</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// ...</span>
+<span class="p">};</span>
+
+<span class="nx">paint</span><span class="p">(</span><span class="nx">BrushType</span><span class="p">.</span><span class="nx">SQUARE</span><span class="p">);</span> <span class="c1">// paint('square');</span>
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">enum</code> 키워드로 열거형을 선언할 수 있으며, <code class="language-plaintext highlighter-rouge">type</code>처럼 사용할 수 있다.</p>
+
+<h2 id="value가-없는-열거형">Value가 없는 열거형</h2>
+<p>만약 <code class="language-plaintext highlighter-rouge">enum</code>객체를 선언할 때 굳이 <code class="language-plaintext highlighter-rouge">value</code>를 지정해주지 않아도 될 상황이 있다.<br />
+어차피 <code class="language-plaintext highlighter-rouge">enum</code>만 허용할건데 <code class="language-plaintext highlighter-rouge">enum</code>을 대표하는 <code class="language-plaintext highlighter-rouge">value</code>들을 지정해 줄 필요는 없기 때문이다.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="kr">enum</span> <span class="nx">BrushType</span> <span class="p">{</span>
+  <span class="nx">CIRCLE</span><span class="p">,</span> <span class="c1">// 0</span>
+  <span class="nx">SQUARE</span><span class="p">,</span> <span class="c1">// 1</span>
+<span class="p">};</span>
+
+<span class="kd">const</span> <span class="nx">draw</span> <span class="o">=</span> <span class="p">(</span><span class="nx">brush</span><span class="p">:</span> <span class="nx">BrushType</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">brush</span> <span class="o">===</span> <span class="nx">BrushType</span><span class="p">.</span><span class="nx">CIRCLE</span><span class="p">)</span> <span class="k">return</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Circle</span><span class="dl">'</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">brush</span> <span class="o">==</span> <span class="nx">BrushType</span><span class="p">.</span><span class="nx">SQUARE</span><span class="p">)</span> <span class="k">return</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Square</span><span class="dl">'</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Nothing!</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="nx">draw</span><span class="p">(</span><span class="nx">BrushType</span><span class="p">.</span><span class="nx">CIRCLE</span><span class="p">);</span>
+<span class="nx">draw</span><span class="p">(</span><span class="dl">'</span><span class="s1">Hello</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// Error</span>
+</code></pre></div></div>
+<p>위와 같은 방법으로 사용할 수 있다.</p>
+
+<h2 id="type-union을-이용한-enum">Type Union을 이용한 Enum</h2>
+<p>그런데 몇가지 되지도 않는 선택지 때문에 <code class="language-plaintext highlighter-rouge">enum</code> 객체를 선언하기 애매한 상황이라면 다음과 같은 선택지도 존재한다.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">paint</span> <span class="o">=</span> <span class="p">(</span><span class="nx">brush</span><span class="p">:</span> <span class="dl">'</span><span class="s1">square</span><span class="dl">'</span> <span class="o">|</span> <span class="dl">'</span><span class="s1">circle</span><span class="dl">'</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">brush</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">square</span><span class="dl">'</span><span class="p">)</span> <span class="k">return</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">square</span><span class="dl">'</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">brush</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">circle</span><span class="dl">'</span><span class="p">)</span> <span class="k">return</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">circle</span><span class="dl">'</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">nothing</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">'square' | 'circle'</code>와 같은 방식으로 유효 범위를 지정하여 <code class="language-plaintext highlighter-rouge">Type</code>을 간단하게 만들 수 있다.</p>
+:ET
