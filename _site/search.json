@@ -1,0 +1,27 @@
+[
+  
+    {
+      "title"    : "01 Typescript를 왜 쓸까",
+      "title-lower"    : "01 typescript를 왜 쓸까",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "TypescriptBasic",
+      "tags"     : "",
+      "url"      : "/typescript/basic/2022/01/07/01-Typescript-%EA%B8%B0%EC%B4%88.html",
+      "date"     : "2022-01-07 00:00:00 +0900",
+      "content"     : "Type의 불확실성 제거Javascript를 사용해봤다면 아래와 같은 문제를 만난 적이 있을 것이다.message.toLowerCase();message();방대한 소스코드에서 저 부분만을 딱 잘라서 보여줬다고 가정할 때, 위 코드를 실행하면 어떤 결과가 나올 것 같은가?그건 아무도 모른다. 왜나하면 message가 프로그램 내부에서 어떻게 정의 되고..."
+    } ,
+  
+    {
+      "title"    : "Integrating razorpay into your webapp",
+      "title-lower"    : "integrating razorpay into your webapp",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "JavascriptNodeJS",
+      "tags"     : "",
+      "url"      : "/javascript/nodejs/2019/03/24/welcome-to-jekyll.html",
+      "date"     : "2019-03-24 00:33:36 +0900",
+      "content"     : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ..."
+    } 
+  
+]
