@@ -1,0 +1,942 @@
+
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next muse use-motion" lang="ko">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/assets/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/assets/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/assets/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Univdev's Tech Archive" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Generic Function 만약 당신이 Java를 익숙하게 사용하는 개발자라면 이 섹션은 이해하기 정말 쉬울 것이다. 다른 언어에서 흔히들 Generic이라고 부르는 것과 동일하기 때문이다. 예를 들어, 당신이 Stack 자료구조를 직접 구현한다고 해보자. Stack에는 정말로 많은 Type의 데이터가 들어간다. Number String Boolean와 같은 모든 유형을 포함해야 한다. class Stack { private data = []; public push(item) { this.data.push(item); } public pop() { return this.data.pop(); } } 물론 이런 형태로 작성할 수는 있겠으나, 우리가 원하는 Typescript의 형태를 띄려면 각 Method와 Paramter의 Return Type을 정의해야 한다. 만약 제네릭이 없다면 class NumberStack { private data: number[] = []; public push(item: number) { this.data.push(item); } public pop(): number { return this.data.pop(); } } class StringStack { private data: string[] = []; public push(item: string) { this.data.push(item); } public pop(): string { return this.data.pop(); } } /// ... 이런 식으로 모든 유형에 대응하는 StackClass를 정의해야 할 것이다. 이건 사실 말이 안되므로, 제네릭을 사용해서 구현을 하면 아래와 같이 표현할 수 있다. class Stack&amp;lt;T&amp;gt; { private data: T[] = []; public push(item: T) { this.data.push(item); } public pop(): T | null { return this.data.pop() || null; } } class 이름 뒤에 &amp;lt;T&amp;gt;가 추가 되었다. 이는 Type을 받을 수 있는 Type Variable이라고 불린다. 제네릭 타입의 객체를 사용할 때는 아래와 같이 사용하면 된다. const stack: Stack&amp;lt;number&amp;gt; = new Stack&amp;lt;number&amp;gt;(); 이렇게 선언하면 number타입으로 구성 된 Stack 클래스를 사용할 수 있다. 예시 ```typescript class Stack { private data: T[] = []; public push(item: T) { this.data.push(item); } public pop(): T | null { return this.data.pop() || null; } }">
+<meta name="keywords" content="Jekyll, NexT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="04. 제네릭">
+<meta property="og:url" content="http://localhost:4000/typescript/2022/01/14/04.generic/">
+<meta property="og:site_name" content="Univdev's Tech Archive">
+<meta property="og:description" content="Generic Function 만약 당신이 Java를 익숙하게 사용하는 개발자라면 이 섹션은 이해하기 정말 쉬울 것이다. 다른 언어에서 흔히들 Generic이라고 부르는 것과 동일하기 때문이다. 예를 들어, 당신이 Stack 자료구조를 직접 구현한다고 해보자. Stack에는 정말로 많은 Type의 데이터가 들어간다. Number String Boolean와 같은 모든 유형을 포함해야 한다. class Stack { private data = []; public push(item) { this.data.push(item); } public pop() { return this.data.pop(); } } 물론 이런 형태로 작성할 수는 있겠으나, 우리가 원하는 Typescript의 형태를 띄려면 각 Method와 Paramter의 Return Type을 정의해야 한다. 만약 제네릭이 없다면 class NumberStack { private data: number[] = []; public push(item: number) { this.data.push(item); } public pop(): number { return this.data.pop(); } } class StringStack { private data: string[] = []; public push(item: string) { this.data.push(item); } public pop(): string { return this.data.pop(); } } /// ... 이런 식으로 모든 유형에 대응하는 StackClass를 정의해야 할 것이다. 이건 사실 말이 안되므로, 제네릭을 사용해서 구현을 하면 아래와 같이 표현할 수 있다. class Stack&amp;lt;T&amp;gt; { private data: T[] = []; public push(item: T) { this.data.push(item); } public pop(): T | null { return this.data.pop() || null; } } class 이름 뒤에 &amp;lt;T&amp;gt;가 추가 되었다. 이는 Type을 받을 수 있는 Type Variable이라고 불린다. 제네릭 타입의 객체를 사용할 때는 아래와 같이 사용하면 된다. const stack: Stack&amp;lt;number&amp;gt; = new Stack&amp;lt;number&amp;gt;(); 이렇게 선언하면 number타입으로 구성 된 Stack 클래스를 사용할 수 있다. 예시 ```typescript class Stack { private data: T[] = []; public push(item: T) { this.data.push(item); } public pop(): T | null { return this.data.pop() || null; } }">
+<meta property="og:locale" content="ko">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="04. 제네릭">
+<meta name="twitter:description" content="Generic Function 만약 당신이 Java를 익숙하게 사용하는 개발자라면 이 섹션은 이해하기 정말 쉬울 것이다. 다른 언어에서 흔히들 Generic이라고 부르는 것과 동일하기 때문이다. 예를 들어, 당신이 Stack 자료구조를 직접 구현한다고 해보자. Stack에는 정말로 많은 Type의 데이터가 들어간다. Number String Boolean와 같은 모든 유형을 포함해야 한다. class Stack { private data = []; public push(item) { this.data.push(item); } public pop() { return this.data.pop(); } } 물론 이런 형태로 작성할 수는 있겠으나, 우리가 원하는 Typescript의 형태를 띄려면 각 Method와 Paramter의 Return Type을 정의해야 한다. 만약 제네릭이 없다면 class NumberStack { private data: number[] = []; public push(item: number) { this.data.push(item); } public pop(): number { return this.data.pop(); } } class StringStack { private data: string[] = []; public push(item: string) { this.data.push(item); } public pop(): string { return this.data.pop(); } } /// ... 이런 식으로 모든 유형에 대응하는 StackClass를 정의해야 할 것이다. 이건 사실 말이 안되므로, 제네릭을 사용해서 구현을 하면 아래와 같이 표현할 수 있다. class Stack&amp;lt;T&amp;gt; { private data: T[] = []; public push(item: T) { this.data.push(item); } public pop(): T | null { return this.data.pop() || null; } } class 이름 뒤에 &amp;lt;T&amp;gt;가 추가 되었다. 이는 Type을 받을 수 있는 Type Variable이라고 불린다. 제네릭 타입의 객체를 사용할 때는 아래와 같이 사용하면 된다. const stack: Stack&amp;lt;number&amp;gt; = new Stack&amp;lt;number&amp;gt;(); 이렇게 선언하면 number타입으로 구성 된 Stack 클래스를 사용할 수 있다. 예시 ```typescript class Stack { private data: T[] = []; public push(item: T) { this.data.push(item); } public pop(): T | null { return this.data.pop() || null; } }">
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '작성자'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://localhost:4000/"/>
+
+
+
+
+
+  <title>04. 제네릭 | Univdev's Tech Archive</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="ko">
+
+  
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Univdev's Tech Archive</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            홈
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            카테고리
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            아카이브
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            태그
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+<div id="posts" class="posts-expand">
+  
+  
+
+  
+
+  
+  
+  
+
+  <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/typescript/2022/01/14/04.generic/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Univdev">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="assets/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Univdev's Tech Archive">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+          
+          
+            04. 제네릭
+          
+        </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+              <time title="" itemprop="dateCreated datePublished" datetime="2022-01-14T00:00:00+09:00">
+                2022-01-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/category/#/Typescript" itemprop="url" rel="index">
+                    <span itemprop="name">Typescript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+            
+                <div class="post-description">
+                    
+                </div>
+            
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <h1 id="generic-function">Generic Function</h1>
+<p>만약 당신이 <code class="highlighter-rouge">Java</code>를 익숙하게 사용하는 개발자라면 이 섹션은 이해하기 정말 쉬울 것이다. 다른 언어에서 흔히들 <code class="highlighter-rouge">Generic</code>이라고 부르는 것과 동일하기 때문이다.<br />
+예를 들어, 당신이 <code class="highlighter-rouge">Stack</code> 자료구조를 직접 구현한다고 해보자.<br />
+<code class="highlighter-rouge">Stack</code>에는 정말로 많은 <code class="highlighter-rouge">Type</code>의 데이터가 들어간다. <code class="highlighter-rouge">Number</code> <code class="highlighter-rouge">String</code> <code class="highlighter-rouge">Boolean</code>와 같은 모든 유형을 포함해야 한다.</p>
+<pre><code class="language-Typescript">class Stack {
+  private data = [];
+  public push(item) {
+    this.data.push(item);
+  }
+  public pop() {
+    return this.data.pop();
+  }
+}
+</code></pre>
+<p>물론 이런 형태로 작성할 수는 있겠으나, 우리가 원하는 <code class="highlighter-rouge">Typescript</code>의 형태를 띄려면 각 <code class="highlighter-rouge">Method</code>와 <code class="highlighter-rouge">Paramter</code>의 <code class="highlighter-rouge">Return Type</code>을 정의해야 한다.<br />
+만약 제네릭이 없다면</p>
+<pre><code class="language-Typescript">class NumberStack {
+  private data: number[] = [];
+  public push(item: number) {
+    this.data.push(item);
+  }
+  public pop(): number {
+    return this.data.pop();
+  }
+}
+</code></pre>
+<pre><code class="language-Typescript">class StringStack {
+  private data: string[] = [];
+  public push(item: string) {
+    this.data.push(item);
+  }
+  public pop(): string {
+    return this.data.pop();
+  }
+}
+/// ...
+</code></pre>
+<p>이런 식으로 모든 유형에 대응하는 StackClass를 정의해야 할 것이다.<br />
+이건 사실 말이 안되므로, 제네릭을 사용해서 구현을 하면 아래와 같이 표현할 수 있다.</p>
+<pre><code class="language-Typescript">class Stack&lt;T&gt; {
+  private data: T[] = [];
+  public push(item: T) {
+      this.data.push(item);
+  }
+  public pop(): T | null {
+      return this.data.pop() || null;
+  }
+}
+</code></pre>
+<p><code class="highlighter-rouge">class</code> 이름 뒤에 <code class="highlighter-rouge">&lt;T&gt;</code>가 추가 되었다.<br />
+이는 <code class="highlighter-rouge">Type</code>을 받을 수 있는 <code class="highlighter-rouge">Type Variable</code>이라고 불린다. 제네릭 타입의 객체를 사용할 때는 아래와 같이 사용하면 된다.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1</pre></td><td class="code"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">stack</span><span class="p">:</span> <span class="nx">Stack</span><span class="o">&lt;</span><span class="nx">number</span><span class="o">&gt;</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Stack</span><span class="o">&lt;</span><span class="nx">number</span><span class="o">&gt;</span><span class="p">();</span>
+</code></pre></td></tr></tbody></table></div></div>
+<p>이렇게 선언하면 <code class="highlighter-rouge">number</code>타입으로 구성 된 <code class="highlighter-rouge">Stack</code> 클래스를 사용할 수 있다.</p>
+<h2 id="예시">예시</h2>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12<br/>13<br/>14</pre></td><td class="code"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Stack</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kr">private</span> <span class="na">data</span><span class="p">:</span> <span class="nx">T</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="kr">public</span> <span class="nx">push</span><span class="p">(</span><span class="na">item</span><span class="p">:</span> <span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="kr">public</span> <span class="nx">pop</span><span class="p">():</span> <span class="nx">T</span> <span class="o">|</span> <span class="kc">null</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">pop</span><span class="p">()</span> <span class="o">||</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Stack</span><span class="o">&lt;</span><span class="nx">number</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="nx">stack</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mi">123</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stack</span><span class="p">.</span><span class="nx">pop</span><span class="p">());</span> <span class="c1">// 123</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stack</span><span class="p">.</span><span class="nx">pop</span><span class="p">());</span> <span class="c1">// null</span>
+</code></pre></td></tr></tbody></table></div></div>
+<h2 id="두-개-이상의-type-variable">두 개 이상의 Type Variable</h2>
+<p><code class="highlighter-rouge">Type Variable</code>은 여러개를 선언할 수도 있다.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12<br/>13<br/>14</pre></td><td class="code"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Stack</span><span class="o">&lt;</span><span class="nx">T</span><span class="p">,</span> <span class="nx">U</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="kr">private</span> <span class="na">data</span><span class="p">:</span> <span class="p">[</span><span class="nx">T</span><span class="p">,</span> <span class="nx">U</span><span class="p">][]</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="kr">public</span> <span class="nx">push</span><span class="p">(</span><span class="na">item</span><span class="p">:</span> <span class="p">[</span><span class="nx">T</span><span class="p">,</span> <span class="nx">U</span><span class="p">])</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="kr">public</span> <span class="nx">pop</span><span class="p">():</span> <span class="p">[</span><span class="nx">T</span><span class="p">,</span> <span class="nx">U</span><span class="p">]</span> <span class="o">|</span> <span class="kc">null</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">pop</span><span class="p">()</span> <span class="o">||</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="na">stack</span><span class="p">:</span> <span class="nx">Stack</span><span class="o">&lt;</span><span class="nx">number</span><span class="p">,</span> <span class="nx">string</span><span class="o">&gt;</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Stack</span><span class="o">&lt;</span><span class="nx">number</span><span class="p">,</span> <span class="nx">stirng</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="nx">stack</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="mi">123</span><span class="p">,</span> <span class="s1">'hello'</span><span class="p">]);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stack</span><span class="p">.</span><span class="nx">pop</span><span class="p">());</span> <span class="c1">// [123, 'hello']</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stack</span><span class="p">.</span><span class="nx">pop</span><span class="p">());</span> <span class="c1">// null</span>
+</code></pre></td></tr></tbody></table></div></div>
+<h2 id="type-상속">Type 상속</h2>
+<p>가독성 측면에서 쓸 일이 진짜 없을 것 같지만 가능은 하다고 하니 알아보겠다.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5</pre></td><td class="code"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">getFirst</span><span class="o">&lt;</span><span class="nx">T</span> <span class="kd">extends</span> <span class="nx">Stack</span><span class="o">&lt;</span><span class="nx">U</span><span class="o">&gt;</span><span class="p">,</span> <span class="nx">U</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">container</span><span class="p">:</span> <span class="nx">T</span><span class="p">):</span> <span class="nx">U</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">item</span> <span class="o">=</span> <span class="nx">container</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
+  <span class="nx">container</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">item</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></tbody></table></div></div>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2</pre></td><td class="code"><pre class="highlight"><code><span class="nx">getFirst</span><span class="o">&lt;</span><span class="nx">Stack</span><span class="o">&lt;</span><span class="nx">number</span><span class="o">&gt;</span><span class="p">,</span> <span class="nx">number</span><span class="p">)(</span><span class="nx">numberStack</span><span class="p">);</span>
+<span class="nx">getFirst</span><span class="o">&lt;</span><span class="nx">number</span><span class="p">,</span> <span class="nx">number</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// Type 'number' does not satisfy the constraint 'Stack&lt;number&gt;'.</span>
+</code></pre></td></tr></tbody></table></div></div>
+<h2 id="참고">참고</h2>
+<p><a href="https://hyunseob.github.io/2017/01/14/typescript-generic/">DailyEngineering - TypeScript: 제네릭(Generic)</a></p>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+        <div class="post-nav" id="post-nav-id">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/typescript/2022/01/14/05.optional_parameters/" rel="next" title="05. 필수가 아닌 파라미터">
+                <i class="fa fa-chevron-left"></i> 05. 필수가 아닌 파라미터
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/typescript/2022/01/14/03.signatures/" rel="prev" title="03. 시그니처">
+                03. 시그니처 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+      
+
+      
+    </footer>
+  </article>
+
+  <div class="post-spread">
+    
+  </div>
+</div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        
+        
+        
+
+
+
+
+
+
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            목차
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            흝어보기
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/assets/images/avatar.gif"
+               alt="Univdev" />
+          <p class="site-author-name" itemprop="name">Univdev</p>
+           
+              <p class="site-description motion-element" itemprop="description">Jekyll</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">포스트</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">카테고리</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+        
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+            
+              <div class="post-toc-content">
+    <ol class=nav>
+      <li class="nav-item nav-level-1"> <a class="nav-link" href="#generic-function"> <span class="nav-number">1</span> <span class="nav-text">Generic Function</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-2"> <a class="nav-link" href="#예시"> <span class="nav-number">1.1</span> <span class="nav-text">예시</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#두-개-이상의-type-variable"> <span class="nav-number">1.2</span> <span class="nav-text">두 개 이상의 Type Variable</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#type-상속"> <span class="nav-number">1.3</span> <span class="nav-text">Type 상속</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#참고"> <span class="nav-number">1.4</span> <span class="nav-text">참고</span> </a> </li> </ol> </li>
+    </ol>
+  </div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Univdev</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://jekyllrb.com">Jekyll</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/simpleyyt/jekyll-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+   
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/assets/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/assets/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/assets/js/src/post-details.js?v=5.1.1"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+    
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
+

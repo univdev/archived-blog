@@ -1,8 +1,0 @@
-I"[<h1 id="index-signature">Index Signature</h1>
-<p>아주 가끔 객체 안에 들어있는 속성들의 <code class="language-plaintext highlighter-rouge">key</code>를 특정짓지 못하는 경우가 있을 수 있다.<br />
-그런 경우 객체 속성의 <code class="language-plaintext highlighter-rouge">key</code>를 모르는 상태이기 때문에 <code class="language-plaintext highlighter-rouge">Type</code> 정의에도 지장이 생긴다. 이럴 경우에는 인덱스 서명 방식을 사용할 수 있다.
-```typescript
-type Props = {
-  [key: number]: string | boolean | Function,
-};</p>
-:ET

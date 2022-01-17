@@ -1,0 +1,875 @@
+
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next muse use-motion" lang="ko">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/assets/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/assets/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/assets/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Univdev's Tech Archive" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="type DescribableFunction = { description: string; (someArg: number): boolean; }; function doSomething(fn: DescribableFunction) { console.log(fn.description + &quot; returned &quot; + fn(6)); } 위 예제는 처음 봤을 때 뭔 소린가 싶었는데, 해석 된 글을 보고 이해한 것을 바탕으로 쉽게 풀어보겠다. Javascript의 객체들은 Property를 가질 수 있다. 예를 들어보자. const text = String(&quot;text&quot;); // &quot;text&quot; const defaultStringLength = String.length; // 1 String객체는 String 자체를 함수 형태로 사용하는게 가능하지만, String객체의 Property인 length에 직접 접근하여 숫자를 가져오는 것도 가능하다. (다른 객체지향 언어의 Static Member Variable을 생각하면 편할 듯 하다.) 바로 이런 경우를 type으로 정의한게 아래와 같은 코드이다. type DescribableFunction = { description: string; (someArg: number): boolean; }; DescribableFunction Type은 DescribableFunction(123) 이러한 형태로 사용하는 것도 가능하지만, DescribableFunction.description 형태로 사용하는 것도 가능한 구조라는 얘기이다. Construct Signatures 위 섹션을 봤다면 본 섹션은 어렵지 않게 이해할 수 있을 것이다. Type은 생성자의 규칙마저도 선언이 가능하다. type SomeConstructor = { new (s: string): SomeObject; }; function fn(ctor: SomeConstructor) { return new ctor(&quot;hello&quot;); } Type 객체 member에 new 연산자만 붙여주면 해당 Type의 클래스는 반드시 선언 된 Type과 동일한 형태의 Constructor를 가져야만 한다. Vanila Javascript에서 Class를 사용하는건 드문 일이니 익숙하지 않을 수 있는 부분이다.">
+<meta name="keywords" content="Jekyll, NexT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="03. 시그니처">
+<meta property="og:url" content="http://localhost:4000/typescript/2022/01/14/03.signatures/">
+<meta property="og:site_name" content="Univdev's Tech Archive">
+<meta property="og:description" content="type DescribableFunction = { description: string; (someArg: number): boolean; }; function doSomething(fn: DescribableFunction) { console.log(fn.description + &quot; returned &quot; + fn(6)); } 위 예제는 처음 봤을 때 뭔 소린가 싶었는데, 해석 된 글을 보고 이해한 것을 바탕으로 쉽게 풀어보겠다. Javascript의 객체들은 Property를 가질 수 있다. 예를 들어보자. const text = String(&quot;text&quot;); // &quot;text&quot; const defaultStringLength = String.length; // 1 String객체는 String 자체를 함수 형태로 사용하는게 가능하지만, String객체의 Property인 length에 직접 접근하여 숫자를 가져오는 것도 가능하다. (다른 객체지향 언어의 Static Member Variable을 생각하면 편할 듯 하다.) 바로 이런 경우를 type으로 정의한게 아래와 같은 코드이다. type DescribableFunction = { description: string; (someArg: number): boolean; }; DescribableFunction Type은 DescribableFunction(123) 이러한 형태로 사용하는 것도 가능하지만, DescribableFunction.description 형태로 사용하는 것도 가능한 구조라는 얘기이다. Construct Signatures 위 섹션을 봤다면 본 섹션은 어렵지 않게 이해할 수 있을 것이다. Type은 생성자의 규칙마저도 선언이 가능하다. type SomeConstructor = { new (s: string): SomeObject; }; function fn(ctor: SomeConstructor) { return new ctor(&quot;hello&quot;); } Type 객체 member에 new 연산자만 붙여주면 해당 Type의 클래스는 반드시 선언 된 Type과 동일한 형태의 Constructor를 가져야만 한다. Vanila Javascript에서 Class를 사용하는건 드문 일이니 익숙하지 않을 수 있는 부분이다.">
+<meta property="og:locale" content="ko">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="03. 시그니처">
+<meta name="twitter:description" content="type DescribableFunction = { description: string; (someArg: number): boolean; }; function doSomething(fn: DescribableFunction) { console.log(fn.description + &quot; returned &quot; + fn(6)); } 위 예제는 처음 봤을 때 뭔 소린가 싶었는데, 해석 된 글을 보고 이해한 것을 바탕으로 쉽게 풀어보겠다. Javascript의 객체들은 Property를 가질 수 있다. 예를 들어보자. const text = String(&quot;text&quot;); // &quot;text&quot; const defaultStringLength = String.length; // 1 String객체는 String 자체를 함수 형태로 사용하는게 가능하지만, String객체의 Property인 length에 직접 접근하여 숫자를 가져오는 것도 가능하다. (다른 객체지향 언어의 Static Member Variable을 생각하면 편할 듯 하다.) 바로 이런 경우를 type으로 정의한게 아래와 같은 코드이다. type DescribableFunction = { description: string; (someArg: number): boolean; }; DescribableFunction Type은 DescribableFunction(123) 이러한 형태로 사용하는 것도 가능하지만, DescribableFunction.description 형태로 사용하는 것도 가능한 구조라는 얘기이다. Construct Signatures 위 섹션을 봤다면 본 섹션은 어렵지 않게 이해할 수 있을 것이다. Type은 생성자의 규칙마저도 선언이 가능하다. type SomeConstructor = { new (s: string): SomeObject; }; function fn(ctor: SomeConstructor) { return new ctor(&quot;hello&quot;); } Type 객체 member에 new 연산자만 붙여주면 해당 Type의 클래스는 반드시 선언 된 Type과 동일한 형태의 Constructor를 가져야만 한다. Vanila Javascript에서 Class를 사용하는건 드문 일이니 익숙하지 않을 수 있는 부분이다.">
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '작성자'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://localhost:4000/"/>
+
+
+
+
+
+  <title>03. 시그니처 | Univdev's Tech Archive</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="ko">
+
+  
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Univdev's Tech Archive</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            홈
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            카테고리
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            아카이브
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            태그
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+<div id="posts" class="posts-expand">
+  
+  
+
+  
+
+  
+  
+  
+
+  <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/typescript/2022/01/14/03.signatures/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Univdev">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="assets/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Univdev's Tech Archive">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+          
+          
+            03. 시그니처
+          
+        </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+              <time title="" itemprop="dateCreated datePublished" datetime="2022-01-14T00:00:00+09:00">
+                2022-01-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/category/#/Typescript" itemprop="url" rel="index">
+                    <span itemprop="name">Typescript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+            
+                <div class="post-description">
+                    
+                </div>
+            
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="language-typescript highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7</pre></td><td class="code"><pre class="highlight"><code><span class="nx">type</span> <span class="nx">DescribableFunction</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">description</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="p">(</span><span class="na">someArg</span><span class="p">:</span> <span class="nx">number</span><span class="p">):</span> <span class="kr">boolean</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="kd">function</span> <span class="nx">doSomething</span><span class="p">(</span><span class="na">fn</span><span class="p">:</span> <span class="nx">DescribableFunction</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fn</span><span class="p">.</span><span class="nx">description</span> <span class="o">+</span> <span class="s2">" returned "</span> <span class="o">+</span> <span class="nx">fn</span><span class="p">(</span><span class="mi">6</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></td></tr></tbody></table></div></div>
+<p>위 예제는 처음 봤을 때 뭔 소린가 싶었는데, <a href="https://velog.io/@zerozoo-front/Call-signature">해석 된 글</a>을 보고 이해한 것을 바탕으로 쉽게 풀어보겠다.<br />
+<code class="highlighter-rouge">Javascript</code>의 객체들은 <code class="highlighter-rouge">Property</code>를 가질 수 있다. 예를 들어보자.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2</pre></td><td class="code"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">text</span> <span class="o">=</span> <span class="nb">String</span><span class="p">(</span><span class="s2">"text"</span><span class="p">);</span> <span class="c1">// "text"</span>
+<span class="kd">const</span> <span class="nx">defaultStringLength</span> <span class="o">=</span> <span class="nb">String</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="c1">// 1</span>
+</code></pre></td></tr></tbody></table></div></div>
+<p><code class="highlighter-rouge">String</code>객체는 <code class="highlighter-rouge">String</code> 자체를 함수 형태로 사용하는게 가능하지만, <code class="highlighter-rouge">String</code>객체의 <code class="highlighter-rouge">Property</code>인 <code class="highlighter-rouge">length</code>에 직접 접근하여 숫자를 가져오는 것도 가능하다. (다른 객체지향 언어의 <code class="highlighter-rouge">Static Member Variable</code>을 생각하면 편할 듯 하다.)<br />
+바로 이런 경우를 <code class="highlighter-rouge">type</code>으로 정의한게 아래와 같은 코드이다.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4</pre></td><td class="code"><pre class="highlight"><code><span class="nx">type</span> <span class="nx">DescribableFunction</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">description</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="p">(</span><span class="na">someArg</span><span class="p">:</span> <span class="nx">number</span><span class="p">):</span> <span class="kr">boolean</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></td></tr></tbody></table></div></div>
+<p><code class="highlighter-rouge">DescribableFunction</code> <code class="highlighter-rouge">Type</code>은 <code class="highlighter-rouge">DescribableFunction(123)</code> 이러한 형태로 사용하는 것도 가능하지만, <code class="highlighter-rouge">DescribableFunction.description</code> 형태로 사용하는 것도 가능한 구조라는 얘기이다.</p>
+<h2 id="construct-signatures">Construct Signatures</h2>
+<p>위 섹션을 봤다면 본 섹션은 어렵지 않게 이해할 수 있을 것이다.<br />
+<code class="highlighter-rouge">Type</code>은 생성자의 규칙마저도 선언이 가능하다.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5<br/>6</pre></td><td class="code"><pre class="highlight"><code><span class="nx">type</span> <span class="nx">SomeConstructor</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="k">new</span> <span class="p">(</span><span class="na">s</span><span class="p">:</span> <span class="nx">string</span><span class="p">):</span> <span class="nx">SomeObject</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="kd">function</span> <span class="nx">fn</span><span class="p">(</span><span class="na">ctor</span><span class="p">:</span> <span class="nx">SomeConstructor</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nx">ctor</span><span class="p">(</span><span class="s2">"hello"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></td></tr></tbody></table></div></div>
+<p><code class="highlighter-rouge">Type</code> 객체 <code class="highlighter-rouge">member</code>에 <code class="highlighter-rouge">new</code> 연산자만 붙여주면 해당 <code class="highlighter-rouge">Type</code>의 클래스는 반드시 선언 된 <code class="highlighter-rouge">Type</code>과 동일한 형태의 <code class="highlighter-rouge">Constructor</code>를 가져야만 한다.<br />
+<code class="highlighter-rouge">Vanila Javascript</code>에서 <code class="highlighter-rouge">Class</code>를 사용하는건 드문 일이니 익숙하지 않을 수 있는 부분이다.</p>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+        <div class="post-nav" id="post-nav-id">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/typescript/2022/01/14/04.generic/" rel="next" title="04. 제네릭">
+                <i class="fa fa-chevron-left"></i> 04. 제네릭
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/typescript/2022/01/14/02.function_type_expression/" rel="prev" title="02. 함수 타입 표현식">
+                02. 함수 타입 표현식 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+      
+
+      
+    </footer>
+  </article>
+
+  <div class="post-spread">
+    
+  </div>
+</div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        
+        
+        
+
+
+
+
+
+
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            목차
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            흝어보기
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/assets/images/avatar.gif"
+               alt="Univdev" />
+          <p class="site-author-name" itemprop="name">Univdev</p>
+           
+              <p class="site-description motion-element" itemprop="description">Jekyll</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">포스트</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">카테고리</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+        
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+            
+              <div class="post-toc-content">
+    <ol class=nav>
+      <li class="nav-item nav-level-2"> <a class="nav-link" href="#construct-signatures"> <span class="nav-number">1</span> <span class="nav-text">Construct Signatures</span> </a> </li>
+    </ol>
+  </div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Univdev</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://jekyllrb.com">Jekyll</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/simpleyyt/jekyll-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+   
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/assets/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/assets/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/assets/js/src/post-details.js?v=5.1.1"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+    
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
+

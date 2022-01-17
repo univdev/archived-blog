@@ -1,9 +1,0 @@
----
-title: "About"
-layout: default
----
-<div class="post-container">
-    <div class="post">
-        {{ content }}
-    </div>
-</div>

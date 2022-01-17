@@ -2,7 +2,7 @@
 layout: post
 title:  "01. Typescript를 왜 쓸까"
 date:   2022-01-14  +0900
-categories: Typescript Basic
+categories: Typescript
 ---
 ## Type의 불확실성 제거
 ```Javascript```를 사용해봤다면 아래와 같은 문제를 만난 적이 있을 것이다.
