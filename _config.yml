@@ -5,8 +5,8 @@
 
 # Site
 title: Univdev's Tech Archive
-subtitle:
-description: 프론트엔드 개발자 박찬영입니다. Vue, Nuxt, React, React Native를 다룹니다.
+subtitle: "프론트엔드 개발자 박찬영입니다. Vue, Nuxt, React, React Native를 다룹니다."
+description: "프론트엔드 개발자 박찬영입니다. Vue, Nuxt, React, React Native를 다룹니다."
 author: Univdev
 # Support language: de, en, fr-FR, id, ja, ko, pt-BR, pt, ru, zh-Hans, zh-hk, zh-tw
 language: ko
@@ -87,7 +87,7 @@ keywords: "Vue, React, Nuxt, React Native, Redux, Frontend, Programmer, Algorhyt
 rss:
 
 # Specify the date when the site was setup
-#since: 2015
+since: 2022
 
 # icon between year and author @Footer
 authoricon: heart
@@ -213,8 +213,8 @@ font:
 # Social Links
 # Key is the link label showing to end users.
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
-#social:
-  #LinkLabel: Link
+social:
+  GitHub: https://github.com/univdev
 
 
 # Social Links Icons
