@@ -7,8 +7,7 @@ type: about
 
 - 1998년생
 - Frontend Engineering Manager
-- 서울특별시 근무 희망, 경기도 안산 거주
-- pcydeveloper@gmail.com
+- [pcydeveloper@gmail.com](mailto:pcydeveloper@gmail.com)
 - 정보처리 **산업기능요원 (2021.09.09 ~ 복무 중)**
 
 ---
