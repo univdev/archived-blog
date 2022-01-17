@@ -19,7 +19,10 @@
     {% else %}
       {{ __.counter.archive_posts.other | replace: '%d', site.posts.size }}
     {% endif %}
-    {{ __.keep_on }}
+    <br>
+    <i>
+      <b>"{{ __.keep_on }}"</b>
+    </i>
   </span>
 
   {% assign paginate = site.archive.paginate | default: site.paginate  %}
