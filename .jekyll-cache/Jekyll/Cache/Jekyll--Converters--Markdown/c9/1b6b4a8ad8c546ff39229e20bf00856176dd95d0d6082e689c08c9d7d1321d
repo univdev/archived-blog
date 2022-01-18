@@ -1,0 +1,53 @@
+I"�<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><!-- <td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td> --><td class="rouge-code"><pre><span class="kd">type</span> <span class="nx">DescribableFunction</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">description</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="p">(</span><span class="na">someArg</span><span class="p">:</span> <span class="kr">number</span><span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="kd">function</span> <span class="nx">doSomething</span><span class="p">(</span><span class="nx">fn</span><span class="p">:</span> <span class="nx">DescribableFunction</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fn</span><span class="p">.</span><span class="nx">description</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> returned </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">fn</span><span class="p">(</span><span class="mi">6</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>위 예제는 처음 봤을 때 뭔 소린가 싶었는데, <a href="https://velog.io/@zerozoo-front/Call-signature">해석 된 글</a>을 보고 이해한 것을 바탕으로 쉽게 풀어보겠다.<br />
+<code class="language-plaintext highlighter-rouge">Javascript</code>의 객체들은 <code class="language-plaintext highlighter-rouge">Property</code>를 가질 수 있다. 예를 들어보자.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><!-- <td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td> --><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">text</span> <span class="o">=</span> <span class="nb">String</span><span class="p">(</span><span class="dl">"</span><span class="s2">text</span><span class="dl">"</span><span class="p">);</span> <span class="c1">// "text"</span>
+<span class="kd">const</span> <span class="nx">defaultStringLength</span> <span class="o">=</span> <span class="nb">String</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="c1">// 1</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">String</code>객체는 <code class="language-plaintext highlighter-rouge">String</code> 자체를 함수 형태로 사용하는게 가능하지만, <code class="language-plaintext highlighter-rouge">String</code>객체의 <code class="language-plaintext highlighter-rouge">Property</code>인 <code class="language-plaintext highlighter-rouge">length</code>에 직접 접근하여 숫자를 가져오는 것도 가능하다. (다른 객체지향 언어의 <code class="language-plaintext highlighter-rouge">Static Member Variable</code>을 생각하면 편할 듯 하다.)<br />
+바로 이런 경우를 <code class="language-plaintext highlighter-rouge">type</code>으로 정의한게 아래와 같은 코드이다.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><!-- <td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td> --><td class="rouge-code"><pre><span class="kd">type</span> <span class="nx">DescribableFunction</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">description</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="p">(</span><span class="na">someArg</span><span class="p">:</span> <span class="kr">number</span><span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">DescribableFunction</code> <code class="language-plaintext highlighter-rouge">Type</code>은 <code class="language-plaintext highlighter-rouge">DescribableFunction(123)</code> 이러한 형태로 사용하는 것도 가능하지만, <code class="language-plaintext highlighter-rouge">DescribableFunction.description</code> 형태로 사용하는 것도 가능한 구조라는 얘기이다.</p>
+<h2 id="construct-signatures">Construct Signatures</h2>
+<p>위 섹션을 봤다면 본 섹션은 어렵지 않게 이해할 수 있을 것이다.<br />
+<code class="language-plaintext highlighter-rouge">Type</code>은 생성자의 규칙마저도 선언이 가능하다.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><!-- <td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td> --><td class="rouge-code"><pre><span class="kd">type</span> <span class="nx">SomeConstructor</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="k">new</span> <span class="p">(</span><span class="na">s</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="nx">SomeObject</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="kd">function</span> <span class="nx">fn</span><span class="p">(</span><span class="nx">ctor</span><span class="p">:</span> <span class="nx">SomeConstructor</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nx">ctor</span><span class="p">(</span><span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">Type</code> 객체 <code class="language-plaintext highlighter-rouge">member</code>에 <code class="language-plaintext highlighter-rouge">new</code> 연산자만 붙여주면 해당 <code class="language-plaintext highlighter-rouge">Type</code>의 클래스는 반드시 선언 된 <code class="language-plaintext highlighter-rouge">Type</code>과 동일한 형태의 <code class="language-plaintext highlighter-rouge">Constructor</code>를 가져야만 한다.<br />
+<code class="language-plaintext highlighter-rouge">Vanila Javascript</code>에서 <code class="language-plaintext highlighter-rouge">Class</code>를 사용하는건 드문 일이니 익숙하지 않을 수 있는 부분이다.</p>
+:ET

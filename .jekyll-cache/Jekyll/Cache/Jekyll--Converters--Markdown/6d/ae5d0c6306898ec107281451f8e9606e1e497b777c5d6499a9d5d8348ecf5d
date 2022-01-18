@@ -1,0 +1,20 @@
+I"�<h1 id="class">Class</h1>
+<p><code class="language-plaintext highlighter-rouge">typescript</code>를 쓰는 이유라고 할 수 있는 <code class="language-plaintext highlighter-rouge">class</code>이다.<br />
+<code class="language-plaintext highlighter-rouge">javascript</code>에서도 <code class="language-plaintext highlighter-rouge">class</code>문법이 이미 있긴 하지만 우리가 원하는 객체지향 프로그래밍 언어 수준까지는 지원해주지 않기 때문에 <code class="language-plaintext highlighter-rouge">javascript</code>에서의 <code class="language-plaintext highlighter-rouge">class</code>는 그저 좀 더 구체적인 객체처럼 다루기 위해서 쓰는 것에 불과했기 때문이다.</p>
+<h2 id="field">Field</h2>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nx">Point</span> <span class="p">{</span>
+  <span class="nl">x</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+  <span class="nl">y</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">const</span> <span class="nx">pt</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Point</span><span class="p">();</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>객체의 타입 선언과 비슷한 문법으로 <code class="language-plaintext highlighter-rouge">class</code>의 <code class="language-plaintext highlighter-rouge">field</code> 정의를 할 수 있다. <em>(다만 위 코드는 오류가 날 것이다.)</em></p>
+<h2 id="초기화-생략">초기화 생략</h2>
+<p>위 코드를 직접 실행 해봤다면 에러가 표시 되는 것을 확인할 수 있었을 것이다.<br />
+<code class="language-plaintext highlighter-rouge">class</code>를 구성하고 있는 변수들은 반드시 <code class="language-plaintext highlighter-rouge">constructor</code>에서 초기화를 진행해줘야 하기 때문이다.</p>
+:ET

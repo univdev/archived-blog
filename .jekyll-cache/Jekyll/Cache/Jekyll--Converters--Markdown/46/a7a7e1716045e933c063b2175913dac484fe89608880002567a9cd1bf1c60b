@@ -1,0 +1,30 @@
+I"U<h1 id="extending-types">Extending Types</h1>
+<p><code class="language-plaintext highlighter-rouge">class</code>가 상속이 되듯이, <code class="language-plaintext highlighter-rouge">type</code>도 상속이 가능하다.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre><span class="kd">type</span> <span class="nx">BasicAddress</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">name</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">street</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">city</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">country</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">postalCode</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+<span class="p">}</span>
+ 
+<span class="kr">interface</span> <span class="nx">AddressWithUnit</span> <span class="kd">extends</span> <span class="nx">BasicAddress</span> <span class="p">{</span>
+  <span class="nl">unit</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>우편번호를 입력 받을 때, 공통적으로 입력 받아야 하는 항목에 대해서 우선적으로 정의하고 추후에 선택사항을 따로 정의한 <code class="language-plaintext highlighter-rouge">interface</code>에 상속하는 방법으로 <code class="language-plaintext highlighter-rouge">type</code>을 확장시킬 수 있다.</p>
+<blockquote>
+  <p>다만, <code class="language-plaintext highlighter-rouge">extends</code> 키워드는 <code class="language-plaintext highlighter-rouge">interface</code>에서만 사용할 수 있다.</p>
+</blockquote>
+:ET

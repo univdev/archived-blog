@@ -47,7 +47,7 @@
 <meta property="twitter:title" content="타입 확장하기" />
 <meta name="twitter:site" content="@twitter_username" />
 <script type="application/ld+json">
-{"url":"http://localhost:4000/posts/09.extending_types/","headline":"타입 확장하기","datePublished":"2022-01-14T00:00:00+08:00","dateModified":"2022-01-17T22:21:18+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/09.extending_types/"},"description":"Extending Types class가 상속이 되듯이, type도 상속이 가능하다. 1 2 3 4 5 6 7 8 9 10 11 type BasicAddress = { name?: string; street: string; city: string; country: string; postalCode: string; } interface AddressWithUnit extends BasicAddress { unit: string; } 우편번호를 입력 받을 때, 공통적으로 입력 받아야 하는 항목에 대해서 우선적으로 정의하고 추후에 선택사항을 따로 정의한 interface에 상속하는 방법으로 type을 확장시킬 수 있다. 다만, extends 키워드는 interface에서만 사용할 수 있다.","@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"datePublished":"2022-01-14T00:00:00+08:00","headline":"타입 확장하기","url":"http://localhost:4000/posts/09.extending_types/","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/09.extending_types/"},"description":"Extending Types class가 상속이 되듯이, type도 상속이 가능하다. 1 2 3 4 5 6 7 8 9 10 11 type BasicAddress = { name?: string; street: string; city: string; country: string; postalCode: string; } interface AddressWithUnit extends BasicAddress { unit: string; } 우편번호를 입력 받을 때, 공통적으로 입력 받아야 하는 항목에 대해서 우선적으로 정의하고 추후에 선택사항을 따로 정의한 interface에 상속하는 방법으로 type을 확장시킬 수 있다. 다만, extends 키워드는 interface에서만 사용할 수 있다.","@type":"BlogPosting","dateModified":"2022-01-17T22:21:18+08:00","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 

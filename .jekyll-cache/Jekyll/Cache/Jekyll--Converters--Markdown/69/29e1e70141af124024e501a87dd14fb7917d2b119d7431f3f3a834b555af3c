@@ -1,0 +1,5 @@
+I"t<h1 id="typescript">Typescript</h1>
+<h2 id="개요">개요</h2>
+<p><code class="language-plaintext highlighter-rouge">Typescript</code>는 <code class="language-plaintext highlighter-rouge">Javascript</code>의 수많은 개량 버전 중 하나이고, 그 중 가장 많은 사랑을 받고 있다.<br />
+<code class="language-plaintext highlighter-rouge">Javascript</code>에서는 지원하지 않는 객제지향 문법을 지원하며, <code class="language-plaintext highlighter-rouge">Javascript</code>보다 엄격한 문법 검사를 시행하기에 에러가 상대적으로 적은 코드를 작성할 수 있다.</p>
+:ET

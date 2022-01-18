@@ -1,0 +1,5 @@
+I"<h2 id="type의-불확실성-제거">Type의 불확실성 제거</h2>
+<p><code class="language-plaintext highlighter-rouge">Javascript</code>를 사용해봤다면 아래와 같은 문제를 만난 적이 있을 것이다.
+```javascript
+message.toLowerCase();</p>
+:ET

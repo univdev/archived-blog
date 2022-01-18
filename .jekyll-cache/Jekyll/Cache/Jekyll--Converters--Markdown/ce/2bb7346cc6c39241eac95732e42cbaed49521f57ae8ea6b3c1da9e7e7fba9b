@@ -1,0 +1,161 @@
+I"�B<h1 id="readonly">Readonly</h1>
+<p><code class="language-plaintext highlighter-rouge">Javascript</code>에서 객체를 구성하는 수많은 <code class="language-plaintext highlighter-rouge">Attributes</code>는 <code class="language-plaintext highlighter-rouge">Writable</code>하면서 <code class="language-plaintext highlighter-rouge">Readable</code>하다.<br />
+따지고 보면 수정하면 안되는 <code class="language-plaintext highlighter-rouge">Attribute</code>마저도 수정이 가능하다.</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">test</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">good</span><span class="dl">'</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">test</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 4;</span>
+<span class="nx">test</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="mi">777</span><span class="p">;</span> <span class="c1">// success</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">test</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 4;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">string</code>이나 <code class="language-plaintext highlighter-rouge">array</code>의 <code class="language-plaintext highlighter-rouge">length</code> Attribute에 직접 값을 입력하는게 가능하다.<br />
+물론 실제로 값이 변경되어 엉뚱한 값이 나오는 것은 아니지만 값을 대입 할 때 아무런 오류 없이 통과가 된다는 것 자체가 원하는 그림이 아니다. <code class="language-plaintext highlighter-rouge">Javascript</code>는 기본적으로 <code class="language-plaintext highlighter-rouge">const</code>로 정의 된 값이 아니라면 재정의가 가능하기 때문에 생기는 이슈이다.</p>
+
+<p>이번엔 같은 소스코드를 <code class="language-plaintext highlighter-rouge">Typescript</code>에서 실행시켜보자.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">test</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">good</span><span class="dl">'</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">test</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 4;</span>
+<span class="nx">test</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="mi">777</span><span class="p">;</span> <span class="c1">// Cannot assign to 'length' because it is a read-only Attribute.(2540)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">test</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>우리가 원하는대로 <code class="language-plaintext highlighter-rouge">length</code> Attribute가 <code class="language-plaintext highlighter-rouge">read-only</code> 값으로 인식되어 수정이 불가능하다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">Typescript</code>에는 <code class="language-plaintext highlighter-rouge">readonly</code>키워드가 있기 때문에 가능한 일이다.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="kd">type</span> <span class="nx">ButtonProps</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">title</span><span class="p">?:</span> <span class="kr">string</span><span class="p">,</span>
+    <span class="nx">disabled</span><span class="p">?:</span> <span class="nx">boolean</span><span class="p">,</span>
+    <span class="k">readonly</span> <span class="nx">onPress</span><span class="p">?:</span> <span class="nb">Function</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="kd">const</span> <span class="nx">submitButtonProps</span><span class="p">:</span> <span class="nx">ButtonProps</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">title</span><span class="p">:</span> <span class="dl">'</span><span class="s1">전송</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">onPress</span><span class="p">:</span> <span class="p">():</span> <span class="k">void</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Submit!</span><span class="dl">'</span><span class="p">),</span>
+<span class="p">};</span>
+
+<span class="nx">submitButtonProps</span><span class="p">.</span><span class="nx">onPress</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Not Submit!</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// Cannot assign to 'onPress' because it is a read-only Attribute.(2540)</span>
+<span class="c1">// ...</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>위 예제처럼 <code class="language-plaintext highlighter-rouge">ButtonProps Type</code>을 정의하고, <code class="language-plaintext highlighter-rouge">submitButtonProps</code> 객체를 <code class="language-plaintext highlighter-rouge">ButtonProps Type</code>으로 정의한다면 <code class="language-plaintext highlighter-rouge">onPress</code> <code class="language-plaintext highlighter-rouge">Attribute</code>에 대하여 최초로 정의한 값에서 재정의를 진행할 때 에러를 뱉는다.</p>
+<h2 id="주의할-점">주의할 점</h2>
+<p><code class="language-plaintext highlighter-rouge">readonly</code> 키워드가 정의되면 모든 방식의 수정을 차단하는 것은 아니다. <code class="language-plaintext highlighter-rouge">readonly</code> 키워드는 대상의 <strong>재정의</strong>만을 차단하는 속성이기 때문이다.</p>
+<h3 id="readonly-속성이-붙은-객체의-attribute-수정">Readonly 속성이 붙은 객체의 Attribute 수정</h3>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="rouge-code"><pre><span class="kd">type</span> <span class="nx">ButtonProps</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">title</span><span class="p">?:</span> <span class="kr">string</span><span class="p">,</span>
+    <span class="nx">disabled</span><span class="p">?:</span> <span class="nx">boolean</span><span class="p">,</span>
+    <span class="k">readonly</span> <span class="nx">onPress</span><span class="p">?:</span> <span class="nb">Function</span><span class="p">,</span>
+    <span class="k">readonly</span> <span class="na">children</span><span class="p">:</span> <span class="p">{</span> <span class="na">a</span><span class="p">:</span> <span class="nb">Number</span><span class="p">,</span> <span class="na">b</span><span class="p">:</span> <span class="nb">Number</span> <span class="p">},</span>
+<span class="p">};</span>
+
+<span class="kd">const</span> <span class="nx">submitButtonProps</span><span class="p">:</span> <span class="nx">ButtonProps</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">title</span><span class="p">:</span> <span class="dl">'</span><span class="s1">전송</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">onPress</span><span class="p">:</span> <span class="p">():</span> <span class="k">void</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Submit!</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">children</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">a</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="na">b</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">submitButtonProps</span><span class="p">.</span><span class="nx">children</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">submitButtonProps.children</code>은 <code class="language-plaintext highlighter-rouge">readonly</code> Attribute가 맞지만, <code class="language-plaintext highlighter-rouge">submitButtonProps.children.a</code>는 <code class="language-plaintext highlighter-rouge">readonly</code>가 아니므로 수정이 가능하다.</p>
+<h3 id="구조가-동일한-서로-다른-type의-재정의">구조가 동일한 서로 다른 type의 재정의</h3>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+</pre></td><td class="rouge-code"><pre><span class="kr">interface</span> <span class="nx">Person</span> <span class="p">{</span>
+  <span class="nl">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">age</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+<span class="p">}</span>
+ 
+<span class="kr">interface</span> <span class="nx">ReadonlyPerson</span> <span class="p">{</span>
+  <span class="k">readonly</span> <span class="nx">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="k">readonly</span> <span class="nx">age</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+<span class="p">}</span>
+ 
+<span class="kd">let</span> <span class="nx">writablePerson</span><span class="p">:</span> <span class="nx">Person</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Person McPersonface</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">age</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span>
+<span class="p">};</span>
+ 
+<span class="c1">// works</span>
+<span class="kd">let</span> <span class="nx">readonlyPerson</span><span class="p">:</span> <span class="nx">ReadonlyPerson</span> <span class="o">=</span> <span class="nx">writablePerson</span><span class="p">;</span>
+ 
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">readonlyPerson</span><span class="p">.</span><span class="nx">age</span><span class="p">);</span> <span class="c1">// prints '42'</span>
+<span class="nx">writablePerson</span><span class="p">.</span><span class="nx">age</span><span class="o">++</span><span class="p">;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>위 소스코드를 보면 <code class="language-plaintext highlighter-rouge">writablePerson</code>은 모든 <code class="language-plaintext highlighter-rouge">Attributes</code>의 수정이 가능한 <code class="language-plaintext highlighter-rouge">Interface</code>인 <code class="language-plaintext highlighter-rouge">Person</code>을 <code class="language-plaintext highlighter-rouge">Type</code>으로 사용했다.<br />
+그런데 <code class="language-plaintext highlighter-rouge">ReadonlyPerson</code>이라는 <code class="language-plaintext highlighter-rouge">type</code>을 보면 모든 <code class="language-plaintext highlighter-rouge">Attribute</code>가 <code class="language-plaintext highlighter-rouge">readonly</code>로 정의 되어있다.<br />
+변수 <code class="language-plaintext highlighter-rouge">readonlyPerson</code>은 <code class="language-plaintext highlighter-rouge">ReadonlyPerson Type</code>을 따르기 때문에 <code class="language-plaintext highlighter-rouge">Attributes</code>의 재정의가 원래는 불가능 해야한다. 하지만 <code class="language-plaintext highlighter-rouge">readonlyPerson</code>의 값을 <code class="language-plaintext highlighter-rouge">WritablePerson Type</code>을 베이스로 정의 된 <code class="language-plaintext highlighter-rouge">writablePerson</code> 변수로 정의했으니 <code class="language-plaintext highlighter-rouge">readonlyPerson</code>의 <code class="language-plaintext highlighter-rouge">Attributes</code>마저 수정이 가능하다.</p>
+
+<p>왜냐하면 변수를 대입하는 과정에서 <code class="language-plaintext highlighter-rouge">Type</code>의 호환 여부를 식별할 때 <code class="language-plaintext highlighter-rouge">readonly</code>는 <strong>비교 대상에서 제외</strong>되기 때문이다.</p>
+<h2 id="재정의가-불가능한-array">재정의가 불가능한 Array</h2>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="kd">type</span> <span class="nx">ArrayType</span> <span class="o">=</span> <span class="k">readonly</span> <span class="p">[</span><span class="kr">number</span><span class="p">,</span> <span class="kr">number</span><span class="p">,</span> <span class="kr">number</span><span class="p">];</span>
+<span class="kd">const</span> <span class="nx">arr</span><span class="p">:</span> <span class="nx">ArrayType</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+
+<span class="nx">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// Cannot assign to '1' because it is a read-only property.</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr</span><span class="p">);</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>객체 뿐 아니라 배열도 <code class="language-plaintext highlighter-rouge">readonly</code> 속성을 통해 데이터의 재정의를 막을 수 있다.</p>
+<h2 id="type-정의를-하지-않는-재정의가-불가능한-array">type 정의를 하지 않는 재정의가 불가능한 Array</h2>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span> <span class="k">as</span> <span class="kd">const</span><span class="p">;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">readonly</code> 튜플을 이용하여 배열을 정의하면 해당 배열의 <code class="language-plaintext highlighter-rouge">type</code>이 자동으로 <code class="language-plaintext highlighter-rouge">readonly [1, 2, 3, 4, 5, 6, 7]</code>이 된다.</p>
+:ET

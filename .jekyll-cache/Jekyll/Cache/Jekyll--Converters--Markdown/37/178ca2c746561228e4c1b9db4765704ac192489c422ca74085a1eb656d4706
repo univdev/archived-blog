@@ -1,0 +1,47 @@
+I"�<h1 id="optional-parameters">Optional Parameters</h1>
+<p><code class="language-plaintext highlighter-rouge">Javascript</code>에서는 함수의 선언부에서 표기 된 <code class="language-plaintext highlighter-rouge">Parameters</code> 갯수를 전부 충족시키지 않은 실행이 이루어져도 에러가 나지 않는다.</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><!-- <td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td> --><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">consolePrint</span> <span class="o">=</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">);</span>
+<span class="p">};</span>
+<span class="nx">consolePrint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// 1, 2, undefined</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>그저 <code class="language-plaintext highlighter-rouge">undefined</code>로 출력이 될 뿐 에러 요소는 아니다.</p>
+
+<p>하지만 <code class="language-plaintext highlighter-rouge">Typescript</code>에서는 <code class="language-plaintext highlighter-rouge">Paramters</code> 갯수도 강제성을 띈다.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><!-- <td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td> --><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">consolePrint</span> <span class="o">=</span> <span class="p">(</span><span class="nx">a</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="nx">b</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="nx">c</span><span class="p">:</span> <span class="kr">number</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">);</span>
+<span class="p">};</span>
+<span class="nx">consolePrint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// Expected 3 arguments, but got 2</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>만약 매개변수를 굳이 받지 않아도 되는 부분이라면 생략할 수도 있을텐데 좀 너무한 부분이다.<br />
+그래서 <code class="language-plaintext highlighter-rouge">Typescript</code>에는 <code class="language-plaintext highlighter-rouge">Parameter</code>를 <code class="language-plaintext highlighter-rouge">Optional</code>(선택적)으로 받을 수 있도록 연산자를 지원한다.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><!-- <td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td> --><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">consolePrint</span> <span class="o">=</span> <span class="p">(</span><span class="nx">a</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="nx">b</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="nx">c</span><span class="p">?:</span> <span class="kr">number</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">);</span>
+<span class="p">};</span>
+<span class="nx">consolePrint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// 1, 2, undefined</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>생략해도 되는 <code class="language-plaintext highlighter-rouge">parameters</code> 이름 뒤에 <code class="language-plaintext highlighter-rouge">?</code> 연산자를 붙여주면 해당 <code class="language-plaintext highlighter-rouge">parameter</code>는 생략이 가능하다.</p>
+<h2 id="여담">여담</h2>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><!-- <td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td> --><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">consolePrint</span> <span class="o">=</span> <span class="p">(</span><span class="nx">a</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="nx">b</span><span class="p">?:</span> <span class="kr">number</span><span class="p">,</span> <span class="nx">c</span><span class="p">:</span> <span class="kr">number</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="c1">// A required paramter cannot follow optional paramter.</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">);</span>
+<span class="p">};</span>
+<span class="nx">consolePrint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>당연한 소리겠지만 <code class="language-plaintext highlighter-rouge">Optional Paramter</code> 뒤에는 <code class="language-plaintext highlighter-rouge">Required Paramter</code>를 정의할 수 없다.</p>
+:ET

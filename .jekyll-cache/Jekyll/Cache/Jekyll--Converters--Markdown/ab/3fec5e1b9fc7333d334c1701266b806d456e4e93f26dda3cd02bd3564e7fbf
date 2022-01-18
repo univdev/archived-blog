@@ -1,0 +1,16 @@
+I"�<h1 id="typescript-관련-컴파일-오류">Typescript 관련 컴파일 오류</h1>
+<h2 id="목록">목록</h2>
+<h3 id="cannot-find-module-typescript">Cannot find module ‘typescript’</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre>https://stackoverflow.com/questions/44611526/how-to-fix-cannot-find-module-typescript-in-angular-4
+
+npm install -g typescript
+
+npm link typescript
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p><strong>Reference</strong> - https://grr1.tistory.com/42</p>
+:ET
