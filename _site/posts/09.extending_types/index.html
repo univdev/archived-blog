@@ -34,7 +34,8 @@
 
   <!-- Begin Jekyll SEO tag v2.7.1 -->
 <meta name="generator" content="Jekyll v4.2.1" />
-<meta property="og:title" content="타입 확장하기" />
+<meta property="og:title" content="[Typescript] 09. 타입 확장" />
+<meta name="author" content="박 찬영" />
 <meta property="og:locale" content="ko_KR" />
 <meta name="description" content="Extending Types class가 상속이 되듯이, type도 상속이 가능하다. 1 2 3 4 5 6 7 8 9 10 11 type BasicAddress = { name?: string; street: string; city: string; country: string; postalCode: string; } interface AddressWithUnit extends BasicAddress { unit: string; } 우편번호를 입력 받을 때, 공통적으로 입력 받아야 하는 항목에 대해서 우선적으로 정의하고 추후에 선택사항을 따로 정의한 interface에 상속하는 방법으로 type을 확장시킬 수 있다. 다만, extends 키워드는 interface에서만 사용할 수 있다." />
 <meta property="og:description" content="Extending Types class가 상속이 되듯이, type도 상속이 가능하다. 1 2 3 4 5 6 7 8 9 10 11 type BasicAddress = { name?: string; street: string; city: string; country: string; postalCode: string; } interface AddressWithUnit extends BasicAddress { unit: string; } 우편번호를 입력 받을 때, 공통적으로 입력 받아야 하는 항목에 대해서 우선적으로 정의하고 추후에 선택사항을 따로 정의한 interface에 상속하는 방법으로 type을 확장시킬 수 있다. 다만, extends 키워드는 interface에서만 사용할 수 있다." />
@@ -42,16 +43,17 @@
 <meta property="og:url" content="http://localhost:4000/posts/09.extending_types/" />
 <meta property="og:site_name" content="Univdev" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-01-14T00:00:00+08:00" />
+<meta property="article:published_time" content="2022-01-18T00:00:00+08:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="타입 확장하기" />
+<meta property="twitter:title" content="[Typescript] 09. 타입 확장" />
 <meta name="twitter:site" content="@twitter_username" />
+<meta name="twitter:creator" content="@박 찬영" />
 <script type="application/ld+json">
-{"datePublished":"2022-01-14T00:00:00+08:00","headline":"타입 확장하기","url":"http://localhost:4000/posts/09.extending_types/","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/09.extending_types/"},"description":"Extending Types class가 상속이 되듯이, type도 상속이 가능하다. 1 2 3 4 5 6 7 8 9 10 11 type BasicAddress = { name?: string; street: string; city: string; country: string; postalCode: string; } interface AddressWithUnit extends BasicAddress { unit: string; } 우편번호를 입력 받을 때, 공통적으로 입력 받아야 하는 항목에 대해서 우선적으로 정의하고 추후에 선택사항을 따로 정의한 interface에 상속하는 방법으로 type을 확장시킬 수 있다. 다만, extends 키워드는 interface에서만 사용할 수 있다.","@type":"BlogPosting","dateModified":"2022-01-17T22:21:18+08:00","@context":"https://schema.org"}</script>
+{"url":"http://localhost:4000/posts/09.extending_types/","headline":"[Typescript] 09. 타입 확장","dateModified":"2022-01-18T00:00:00+08:00","datePublished":"2022-01-18T00:00:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/09.extending_types/"},"author":{"@type":"Person","name":"박 찬영"},"description":"Extending Types class가 상속이 되듯이, type도 상속이 가능하다. 1 2 3 4 5 6 7 8 9 10 11 type BasicAddress = { name?: string; street: string; city: string; country: string; postalCode: string; } interface AddressWithUnit extends BasicAddress { unit: string; } 우편번호를 입력 받을 때, 공통적으로 입력 받아야 하는 항목에 대해서 우선적으로 정의하고 추후에 선택사항을 따로 정의한 interface에 상속하는 방법으로 type을 확장시킬 수 있다. 다만, extends 키워드는 interface에서만 사용할 수 있다.","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>09. 타입 확장하기 | Univdev
+  <title>[Typescript] 09. 타입 확장 | Univdev
   </title>
 
   <!--
@@ -403,7 +405,7 @@
         
 
           
-            <span>09. 타입 확장하기</span>
+            <span>[Typescript] 09. 타입 확장</span>
           
 
         
@@ -560,7 +562,7 @@
 
 
 
-<h1 data-toc-skip>09. 타입 확장하기</h1>
+<h1 data-toc-skip>[Typescript] 09. 타입 확장</h1>
 
 <div class="post-meta text-muted">
 
@@ -574,7 +576,7 @@
     By
     <em>
       
-        <a href="https://twitter.com/username">Univdev</a>
+        <a href="https://github.com/univdev">박 찬영</a>
       
     </em>
   </div>
@@ -594,38 +596,16 @@
 
 
 <em class="timeago"
-    date="2022-01-14 00:00:00 +0800"
+    date="2022-01-18 00:00:00 +0800"
     
       data-toggle="tooltip"
       data-placement="bottom"
-      title="2022-01-14, 00:00 +0800"
-    >01월 14일</em>
+      title="2022-01-18, 00:00 +0800"
+    >01월 18일</em>
 
       </span>
 
       <!-- lastmod date -->
-      
-      <span>
-        업데이트
-        <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/timeago.js
--->
-
-
-
-
-
-<em class="timeago"
-    date="2022-01-17 23:21:18 +0900
-"
-    
-      data-toggle="tooltip"
-      data-placement="bottom"
-      title="2022-01-17, 23:21 +0900"
-    >01월 17일</em>
-
-      </span>
       
 
       <!-- read time -->
@@ -768,11 +748,20 @@
   <div class="post-meta mb-3">
     <i class="far fa-folder-open fa-fw mr-1"></i>
     
-      <a href='/categories/typescript/'>Typescript</a>
+      <a href='/categories/typescript/'>Typescript</a>,
+      <a href='/categories/tutorial/'>Tutorial</a>
   </div>
   
 
   <!-- tags -->
+  
+  <div class="post-tags">
+    <i class="fa fa-tags fa-fw mr-1"></i>
+      
+      <a href="/tags/typescript/"
+          class="post-tag no-text-decoration" >Typescript</a>
+      
+  </div>
   
 
   <div class="post-tail-bottom
@@ -804,19 +793,19 @@
 
     
       
-        <a href="https://twitter.com/intent/tweet?text=09. 타입 확장하기 - Univdev&url=http://localhost:4000/posts/09.extending_types/" data-toggle="tooltip" data-placement="top"
+        <a href="https://twitter.com/intent/tweet?text=[Typescript] 09. 타입 확장 - Univdev&url=http://localhost:4000/posts/09.extending_types/" data-toggle="tooltip" data-placement="top"
           title="Twitter" target="_blank" rel="noopener" aria-label="Twitter">
           <i class="fa-fw fab fa-twitter"></i>
         </a>
     
       
-        <a href="https://www.facebook.com/sharer/sharer.php?title=09. 타입 확장하기 - Univdev&u=http://localhost:4000/posts/09.extending_types/" data-toggle="tooltip" data-placement="top"
+        <a href="https://www.facebook.com/sharer/sharer.php?title=[Typescript] 09. 타입 확장 - Univdev&u=http://localhost:4000/posts/09.extending_types/" data-toggle="tooltip" data-placement="top"
           title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fa-fw fab fa-facebook-square"></i>
         </a>
     
       
-        <a href="https://telegram.me/share?text=09. 타입 확장하기 - Univdev&url=http://localhost:4000/posts/09.extending_types/" data-toggle="tooltip" data-placement="top"
+        <a href="https://telegram.me/share?text=[Typescript] 09. 타입 확장 - Univdev&url=http://localhost:4000/posts/09.extending_types/" data-toggle="tooltip" data-placement="top"
           title="Telegram" target="_blank" rel="noopener" aria-label="Telegram">
           <i class="fa-fw fab fa-telegram"></i>
         </a>
@@ -864,40 +853,6 @@
 
 
 
-  <div id="access-lastmod" class="post">
-    <div class="panel-heading">최근 업데이트</div>
-    <ul class="post-content pl-0 pb-1 ml-1 mt-2">
-      
-        
-        
-        
-      <li><a href="/posts/00.Typescript-%EA%B0%9C%EC%9A%94/">00. Typescript 개요</a></li>
-      
-        
-        
-        
-      <li><a href="/posts/03.signatures/">03. 시그니처</a></li>
-      
-        
-        
-        
-      <li><a href="/posts/04.generic/">04. 제네릭</a></li>
-      
-        
-        
-        
-      <li><a href="/posts/05.optional_parameters/">05. 필수가 아닌 파라미터</a></li>
-      
-        
-        
-        
-      <li><a href="/posts/06.overloading/">06. 오버로딩</a></li>
-      
-    </ul>
-  </div> <!-- #access-lastmod -->
-
-
-
       
 
 
@@ -914,7 +869,28 @@
 
 
 
+  
+    
+    
+    
+    
+      
+        
+        
 
+
+
+  <div id="access-tags">
+    <div class="panel-heading">인기 태그</div>
+    <div class="d-flex flex-wrap mt-3 mb-1 mr-3">
+
+    
+      
+      <a class="post-tag" href="/tags/typescript/">Typescript</a>
+    
+
+    </div>
+  </div>
 
 
     </div>
@@ -1159,10 +1135,10 @@
 
 
 <em class="timeago small"
-    date="2022-01-14 00:00:00 +0800"
-    >01월 14일</em>
+    date="2022-01-18 00:00:00 +0800"
+    >01월 18일</em>
 
-            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>03. 시그니처</h3>
+            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>[Typescript] 03. 시그니처</h3>
             <div class="text-muted small">
               <p>
                 
@@ -1201,10 +1177,10 @@ function doSomething(fn: DescribableFunction) {
 
 
 <em class="timeago small"
-    date="2022-01-14 00:00:00 +0800"
-    >01월 14일</em>
+    date="2022-01-18 00:00:00 +0800"
+    >01월 18일</em>
 
-            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>04. 제네릭</h3>
+            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>[Typescript] 04. 제네릭</h3>
             <div class="text-muted small">
               <p>
                 
@@ -1238,10 +1214,10 @@ Stack에는 정말로 많은 Type의 데이터가 들어간다. Number String Bo
 
 
 <em class="timeago small"
-    date="2022-01-14 00:00:00 +0800"
-    >01월 14일</em>
+    date="2022-01-18 00:00:00 +0800"
+    >01월 18일</em>
 
-            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>05. 필수가 아닌 파라미터</h3>
+            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>[Typescript] 05. 필수가 아닌 파라미터</h3>
             <div class="text-muted small">
               <p>
                 
@@ -1276,14 +1252,14 @@ consolePrint(1, 2); // 1, 2, unde...
   
   <a href="/posts/08.index_signatures/" class="btn btn-outline-primary"
     prompt="이전 글">
-    <p>08. 인덱스 시그니처</p>
+    <p>[Typescript] 08. 인덱스 서명</p>
   </a>
   
 
   
   <a href="/posts/10.class/" class="btn btn-outline-primary"
     prompt="다음 글">
-    <p>10. 클래스</p>
+    <p>[Typescript] 10. 클래스</p>
   </a>
   
 
@@ -1361,7 +1337,28 @@ consolePrint(1, 2); // 1, 2, unde...
 
 
 
+  
+    
+    
+    
+    
+      
+        
+        
 
+
+
+  <div id="access-tags">
+    <div class="panel-heading">인기 태그</div>
+    <div class="d-flex flex-wrap mt-3 mb-1 mr-3">
+
+    
+      
+      <a class="post-tag" href="/tags/typescript/">Typescript</a>
+    
+
+    </div>
+  </div>
 
 
     </div>
