@@ -6,7 +6,7 @@
 
 
 
-<html lang="en"
+<html lang="ko-KR"
   
 >
 
@@ -21,10 +21,10 @@
   
 
     <!-- i18n for `_javascript/utils/timeago.js` -->
-    <meta name="day-prompt" content="days ago">
-    <meta name="hour-prompt" content="hours ago">
-    <meta name="minute-prompt" content="minutes ago">
-    <meta name="justnow-prompt" content="just now">
+    <meta name="day-prompt" content="일 전">
+    <meta name="hour-prompt" content="시간 전">
+    <meta name="minute-prompt" content="분 전">
+    <meta name="justnow-prompt" content="방금">
 
     
 
@@ -35,12 +35,12 @@
   <!-- Begin Jekyll SEO tag v2.7.1 -->
 <meta name="generator" content="Jekyll v4.2.1" />
 <meta property="og:title" content="클래스" />
-<meta property="og:locale" content="en" />
+<meta property="og:locale" content="ko_KR" />
 <meta name="description" content="Class typescript를 쓰는 이유라고 할 수 있는 class이다. javascript에서도 class문법이 이미 있긴 하지만 우리가 원하는 객체지향 프로그래밍 언어 수준까지는 지원해주지 않기 때문에 javascript에서의 class는 그저 좀 더 구체적인 객체처럼 다루기 위해서 쓰는 것에 불과했기 때문이다. Field 1 2 3 4 5 class Point { x: number; y: number; } const pt = new Point(); 객체의 타입 선언과 비슷한 문법으로 class의 field 정의를 할 수 있다. (다만 위 코드는 오류가 날 것이다.) 초기화 생략 위 코드를 직접 실행 해봤다면 에러가 표시 되는 것을 확인할 수 있었을 것이다. class를 구성하고 있는 변수들은 반드시 constructor에서 초기화를 진행해줘야 하기 때문이다." />
 <meta property="og:description" content="Class typescript를 쓰는 이유라고 할 수 있는 class이다. javascript에서도 class문법이 이미 있긴 하지만 우리가 원하는 객체지향 프로그래밍 언어 수준까지는 지원해주지 않기 때문에 javascript에서의 class는 그저 좀 더 구체적인 객체처럼 다루기 위해서 쓰는 것에 불과했기 때문이다. Field 1 2 3 4 5 class Point { x: number; y: number; } const pt = new Point(); 객체의 타입 선언과 비슷한 문법으로 class의 field 정의를 할 수 있다. (다만 위 코드는 오류가 날 것이다.) 초기화 생략 위 코드를 직접 실행 해봤다면 에러가 표시 되는 것을 확인할 수 있었을 것이다. class를 구성하고 있는 변수들은 반드시 constructor에서 초기화를 진행해줘야 하기 때문이다." />
 <link rel="canonical" href="http://localhost:4000/posts/10.class/" />
 <meta property="og:url" content="http://localhost:4000/posts/10.class/" />
-<meta property="og:site_name" content="Chirpy" />
+<meta property="og:site_name" content="Univdev" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2022-01-14T00:00:00+08:00" />
 <meta name="twitter:card" content="summary" />
@@ -51,7 +51,7 @@
 <!-- End Jekyll SEO tag -->
 
 
-  <title>10. 클래스 | Chirpy
+  <title>10. 클래스 | Univdev
   </title>
 
   <!--
@@ -66,8 +66,8 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png">
 <link rel="manifest" href="/assets/img/favicons/site.webmanifest">
 <link rel="shortcut icon" href="/assets/img/favicons/favicon.ico">
-<meta name="apple-mobile-web-app-title" content="Chirpy">
-<meta name="application-name" content="Chirpy">
+<meta name="apple-mobile-web-app-title" content="Univdev">
+<meta name="application-name" content="Univdev">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="msapplication-config" content="/assets/img/favicons/browserconfig.xml">
 <meta name="theme-color" content="#ffffff">
@@ -253,21 +253,21 @@
   The Side Bar
 -->
 
-<div id="sidebar" class="d-flex flex-column align-items-end" lang="en">
+<div id="sidebar" class="d-flex flex-column align-items-end" lang="ko-KR">
   <div class="profile-wrapper text-center">
     <div id="avatar">
       <a href="/" alt="avatar" class="mx-auto">
         
           
-          <img src="https://cdn.jsdelivr.net/gh/cotes2020/chirpy-images@f4e0354b674f65a53b8917f0f786ed2956898cc1/commons/avatar.jpg" alt="avatar" onerror="this.style.display='none'">
+          <img src="/assets/img/profile.png" alt="avatar" onerror="this.style.display='none'">
         
       </a>
     </div>
 
     <div class="site-title mt-3">
-      <a href="/">Chirpy</a>
+      <a href="/">Univdev</a>
     </div>
-    <div class="site-subtitle font-italic">A text-focused Jekyll theme</div>
+    <div class="site-subtitle font-italic">프론트엔드 엔지니어 박찬영입니다!</div>
 
   </div><!-- .profile-wrapper -->
 
@@ -277,7 +277,7 @@
     <li class="nav-item">
       <a href="/" class="nav-link">
         <i class="fa-fw fas fa-home ml-xl-3 mr-xl-3 unloaded"></i>
-        <span>HOME</span>
+        <span>홈</span>
       </a>
     </li>
     <!-- the real tabs -->
@@ -287,7 +287,7 @@
         <i class="fa-fw fas fa-stream ml-xl-3 mr-xl-3 unloaded"></i>
         
 
-        <span>CATEGORIES</span>
+        <span>카테고리</span>
       </a>
     </li> <!-- .nav-item -->
     
@@ -296,7 +296,7 @@
         <i class="fa-fw fas fa-tag ml-xl-3 mr-xl-3 unloaded"></i>
         
 
-        <span>TAGS</span>
+        <span>태그</span>
       </a>
     </li> <!-- .nav-item -->
     
@@ -305,7 +305,7 @@
         <i class="fa-fw fas fa-archive ml-xl-3 mr-xl-3 unloaded"></i>
         
 
-        <span>ARCHIVES</span>
+        <span>아카이브</span>
       </a>
     </li> <!-- .nav-item -->
     
@@ -314,7 +314,7 @@
         <i class="fa-fw fas fa-info-circle ml-xl-3 mr-xl-3 unloaded"></i>
         
 
-        <span>ABOUT</span>
+        <span>정보</span>
       </a>
     </li> <!-- .nav-item -->
     
@@ -337,7 +337,7 @@
       
 
       
-      <a href="https://github.com/github_username" aria-label="github"
+      <a href="https://github.com/univdev" aria-label="github"
         target="_blank" rel="noopener">
         <i class="fab fa-github"></i>
       </a>
@@ -347,18 +347,8 @@
       
 
       
-      <a href="https://twitter.com/twitter_username" aria-label="twitter"
-        target="_blank" rel="noopener">
-        <i class="fab fa-twitter"></i>
-      </a>
-      
-
-    
-      
-
-      
       <a href="
-          javascript:location.href = 'mailto:' + ['example','doamin.com'].join('@')" aria-label="email"
+          javascript:location.href = 'mailto:' + ['pcydeveloper','gmail.com'].join('@')" aria-label="email"
         >
         <i class="fas fa-envelope"></i>
       </a>
@@ -398,7 +388,7 @@
         
           <span>
             <a href="/">
-              Home
+              홈
             </a>
           </span>
 
@@ -427,17 +417,17 @@
     <i id="sidebar-trigger" class="fas fa-bars fa-fw"></i>
 
     <div id="topbar-title">
-      Post
+      포스트
     </div>
 
     <i id="search-trigger" class="fas fa-search fa-fw"></i>
     <span id="search-wrapper" class="align-items-center">
       <i class="fas fa-search fa-fw"></i>
       <input class="form-control" id="search-input" type="search"
-        aria-label="search" autocomplete="off" placeholder="Search...">
+        aria-label="search" autocomplete="off" placeholder="검색...">
       <i class="fa fa-times-circle fa-fw" id="search-cleaner"></i>
     </span>
-    <span id="search-cancel" >Cancel</span>
+    <span id="search-cancel" >취소</span>
   </div>
 
 </div>
@@ -738,7 +728,7 @@
     By
     <em>
       
-        <a href="https://twitter.com/username">your_full_name</a>
+        <a href="https://twitter.com/username">Univdev</a>
       
     </em>
   </div>
@@ -747,7 +737,7 @@
     <div>
       <!-- published date -->
       <span>
-        Posted
+        게시
         <!--
   Date format snippet
   See: ${JS_ROOT}/utils/timeago.js
@@ -762,15 +752,15 @@
     
       data-toggle="tooltip"
       data-placement="bottom"
-      title="Fri, Jan 14, 2022, 12:00 AM +0800"
-    >Jan 14</em>
+      title="2022-01-14, 00:00 +0800"
+    >01월 14일</em>
 
       </span>
 
       <!-- lastmod date -->
       
       <span>
-        Updated
+        업데이트
         <!--
   Date format snippet
   See: ${JS_ROOT}/utils/timeago.js
@@ -786,8 +776,8 @@
     
       data-toggle="tooltip"
       data-placement="bottom"
-      title="Mon, Jan 17, 2022, 11:21 PM +0900"
-    >Jan 17</em>
+      title="2022-01-17, 23:21 +0900"
+    >01월 17일</em>
 
       </span>
       
@@ -812,8 +802,8 @@
 
 <!-- return element -->
 <span class="readtime" data-toggle="tooltip" data-placement="bottom"
-  title="2074 words">
-  <em>11 min</em> read</span>
+  title="2074 단어">
+  <em>11 분</em>읽는 시간</span>
 
 
       <!-- page views -->
@@ -831,7 +821,7 @@
 <h2 id="field">Field <a href="#field" class="anchor"><i class="fas fa-hashtag"></i></a></h2></h2>
 <div class="language-typescript highlighter-rouge"><div class="code-header">
         <span data-label-text="TypeScript"><i class="fas fa-code small"></i></span>
-      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+      <button aria-label="copy" data-title-succeed="복사되었습니다!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -850,7 +840,7 @@
 <p>만약 멤버 변수들의 정의만을 하고 싶을 뿐, <code class="language-plaintext highlighter-rouge">constructor</code>에서 초기화를 진행하고 싶지 않다면 <strong>확정 할당 연산자(Non-null assertion operator)</strong>를 사용한다. <code class="language-plaintext highlighter-rouge">!</code></p>
 <div class="language-typescript highlighter-rouge"><div class="code-header">
         <span data-label-text="TypeScript"><i class="fas fa-code small"></i></span>
-      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+      <button aria-label="copy" data-title-succeed="복사되었습니다!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -871,7 +861,7 @@
 <p>멤버 변수에 <code class="language-plaintext highlighter-rouge">readonly</code> 속성을 사용할 수도 있다.</p>
 <div class="language-typescript highlighter-rouge"><div class="code-header">
         <span data-label-text="TypeScript"><i class="fas fa-code small"></i></span>
-      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+      <button aria-label="copy" data-title-succeed="복사되었습니다!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -907,7 +897,7 @@
 <p>어느 객체지향 언어처럼 생성자 역시 지원한다.</p>
 <div class="language-typescript highlighter-rouge"><div class="code-header">
         <span data-label-text="TypeScript"><i class="fas fa-code small"></i></span>
-      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+      <button aria-label="copy" data-title-succeed="복사되었습니다!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -935,7 +925,7 @@
 <h3 id="constructor-overloading">Constructor overloading <a href="#constructor-overloading" class="anchor"><i class="fas fa-hashtag"></i></a></h3></h3>
 <div class="language-typescript highlighter-rouge"><div class="code-header">
         <span data-label-text="TypeScript"><i class="fas fa-code small"></i></span>
-      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+      <button aria-label="copy" data-title-succeed="복사되었습니다!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -959,7 +949,7 @@
 클래스는 <code class="language-plaintext highlighter-rouge">exntends</code>를 지원한다. 그렇다면 자식 클래스의 인스턴스를 생성하게 되면 부모 클래스의 <code class="language-plaintext highlighter-rouge">constructor</code>는 언제 실행되는 걸까?</p>
 <div class="language-typescript highlighter-rouge"><div class="code-header">
         <span data-label-text="TypeScript"><i class="fas fa-code small"></i></span>
-      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+      <button aria-label="copy" data-title-succeed="복사되었습니다!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -979,7 +969,7 @@
 <strong>다만</strong> 자식 클래스에서 부모 클래스의 생성자를 호출해야만 하는 상황이 생길 수가 있는데, 이럴 경우에 부모의 생성자를 호출하는 함수가 <code class="language-plaintext highlighter-rouge">super</code>함수이다.</p>
 <div class="language-typescript highlighter-rouge"><div class="code-header">
         <span data-label-text="TypeScript"><i class="fas fa-code small"></i></span>
-      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+      <button aria-label="copy" data-title-succeed="복사되었습니다!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -1003,7 +993,7 @@
 <code class="language-plaintext highlighter-rouge">super</code>를 실행하지 않으면 부모의 멤버 변수를 참조할 수 없기 때문이다.</p>
 <div class="language-typescript highlighter-rouge"><div class="code-header">
         <span data-label-text="TypeScript"><i class="fas fa-code small"></i></span>
-      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+      <button aria-label="copy" data-title-succeed="복사되었습니다!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -1028,7 +1018,7 @@
 <p><code class="language-plaintext highlighter-rouge">Javascript</code>에서 <code class="language-plaintext highlighter-rouge">Array.length</code>를 수정해 본 적이 있으면 알겠지만 실제로 값을 재정의 할 때는 아무런 에러가 나오지 않는데도 값을 재정의 한 다음 출력을 해보면 내가 정의한 값이 아닌 올바른 값이 나오는 것을 볼 수 있다.</p>
 <div class="language-javascript highlighter-rouge"><div class="code-header">
         <span data-label-text="JavaScript"><i class="fas fa-code small"></i></span>
-      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+      <button aria-label="copy" data-title-succeed="복사되었습니다!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -1041,7 +1031,7 @@
 답은 <code class="language-plaintext highlighter-rouge">Getter</code>이다.</p>
 <div class="language-typescript highlighter-rouge"><div class="code-header">
         <span data-label-text="TypeScript"><i class="fas fa-code small"></i></span>
-      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+      <button aria-label="copy" data-title-succeed="복사되었습니다!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -1087,7 +1077,7 @@
 그러면 <code class="language-plaintext highlighter-rouge">Setter</code>도 대충 감이 올텐데, <code class="language-plaintext highlighter-rouge">Setter</code>는 <strong>대입 연산자(=)</strong>를 통해 <code class="language-plaintext highlighter-rouge">Attribute</code>에 값을 대입할 때, 정직하게 대입만 하는 것이 아닌 특정 로직을 거쳐서 값에 변조를 줄 때 사용한다.</p>
 <div class="language-typescript highlighter-rouge"><div class="code-header">
         <span data-label-text="TypeScript"><i class="fas fa-code small"></i></span>
-      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+      <button aria-label="copy" data-title-succeed="복사되었습니다!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -1123,7 +1113,7 @@
 <p>여기서 일반 객체와 마찬가지로 <code class="language-plaintext highlighter-rouge">Index Signatures</code>를 사용할 수 있다.</p>
 <div class="language-typescript highlighter-rouge"><div class="code-header">
         <span data-label-text="TypeScript"><i class="fas fa-code small"></i></span>
-      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+      <button aria-label="copy" data-title-succeed="복사되었습니다!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -1142,7 +1132,7 @@
 <p><code class="language-plaintext highlighter-rouge">Class</code>도 <code class="language-plaintext highlighter-rouge">interface</code>를 통해 멤버들의 범위를 정해줄 수 있다.</p>
 <div class="language-typescript highlighter-rouge"><div class="code-header">
         <span data-label-text="TypeScript"><i class="fas fa-code small"></i></span>
-      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+      <button aria-label="copy" data-title-succeed="복사되었습니다!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -1178,7 +1168,7 @@
 부모 클래스가 갖고있는 멤버 함수와 동일한 이름으로 설정 하되, <code class="language-plaintext highlighter-rouge">parameter</code>의 <code class="language-plaintext highlighter-rouge">type</code>이나 갯수를 다르게 설정하는 방식으로 사용한다.</p>
 <div class="language-typescript highlighter-rouge"><div class="code-header">
         <span data-label-text="TypeScript"><i class="fas fa-code small"></i></span>
-      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+      <button aria-label="copy" data-title-succeed="복사되었습니다!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -1223,7 +1213,7 @@
 일반 객체와 마찬가지로 <code class="language-plaintext highlighter-rouge">Class</code> 구성하는 멤버들을 비교하여 구분한다.</p>
 <div class="language-typescript highlighter-rouge"><div class="code-header">
         <span data-label-text="TypeScript"><i class="fas fa-code small"></i></span>
-      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+      <button aria-label="copy" data-title-succeed="복사되었습니다!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -1274,11 +1264,11 @@
 
         
 
-        This post is licensed under 
+        이 기사는 저작권자의 
         <a href="https://creativecommons.org/licenses/by/4.0/">
           CC BY 4.0
         </a>
-         by the author.
+         라이센스를 따릅니다.
 
       
     </div>
@@ -1288,26 +1278,26 @@
 -->
 
 <div class="share-wrapper">
-  <span class="share-label text-muted mr-1">Share</span>
+  <span class="share-label text-muted mr-1">공유하기</span>
   <span class="share-icons">
     
     
 
     
       
-        <a href="https://twitter.com/intent/tweet?text=10. 클래스 - Chirpy&url=http://localhost:4000/posts/10.class/" data-toggle="tooltip" data-placement="top"
+        <a href="https://twitter.com/intent/tweet?text=10. 클래스 - Univdev&url=http://localhost:4000/posts/10.class/" data-toggle="tooltip" data-placement="top"
           title="Twitter" target="_blank" rel="noopener" aria-label="Twitter">
           <i class="fa-fw fab fa-twitter"></i>
         </a>
     
       
-        <a href="https://www.facebook.com/sharer/sharer.php?title=10. 클래스 - Chirpy&u=http://localhost:4000/posts/10.class/" data-toggle="tooltip" data-placement="top"
+        <a href="https://www.facebook.com/sharer/sharer.php?title=10. 클래스 - Univdev&u=http://localhost:4000/posts/10.class/" data-toggle="tooltip" data-placement="top"
           title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fa-fw fab fa-facebook-square"></i>
         </a>
     
       
-        <a href="https://telegram.me/share?text=10. 클래스 - Chirpy&url=http://localhost:4000/posts/10.class/" data-toggle="tooltip" data-placement="top"
+        <a href="https://telegram.me/share?text=10. 클래스 - Univdev&url=http://localhost:4000/posts/10.class/" data-toggle="tooltip" data-placement="top"
           title="Telegram" target="_blank" rel="noopener" aria-label="Telegram">
           <i class="fa-fw fab fa-telegram"></i>
         </a>
@@ -1315,8 +1305,8 @@
 
     <i id="copy-link" class="fa-fw fas fa-link small"
         data-toggle="tooltip" data-placement="top"
-        title="Copy link"
-        title-succeed="Link copied successfully!">
+        title="링크 복사하기"
+        title-succeed="링크가 복사되었습니다!">
     </i>
 
   </span>
@@ -1356,7 +1346,7 @@
 
 
   <div id="access-lastmod" class="post">
-    <div class="panel-heading">Recently Updated</div>
+    <div class="panel-heading">최근 업데이트</div>
     <ul class="post-content pl-0 pb-1 ml-1 mt-2">
       
         
@@ -1420,7 +1410,7 @@
 <script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.js"></script>
 
 <div id="toc-wrapper" class="pl-0 pr-4 mb-5">
-  <div class="panel-heading pl-3 pt-2 mb-2">Contents</div>
+  <div class="panel-heading pl-3 pt-2 mb-2">바로가기</div>
   <nav id="toc" data-toggle="toc"></nav>
 </div>
 
@@ -1632,7 +1622,7 @@
 
   <div id="related-posts" class="mt-5 mb-2 mb-sm-4">
     <h3 class="pt-2 mt-1 mb-4 ml-1"
-      data-toc-skip>Further Reading</h3>
+      data-toc-skip>관련된 글</h3>
     <div class="card-deck mb-4">
     
       
@@ -1651,7 +1641,7 @@
 
 <em class="timeago small"
     date="2022-01-14 00:00:00 +0800"
-    >Jan 14</em>
+    >01월 14일</em>
 
             <h3 class="pt-0 mt-1 mb-3" data-toc-skip>03. 시그니처</h3>
             <div class="text-muted small">
@@ -1693,7 +1683,7 @@ function doSomething(fn: DescribableFunction) {
 
 <em class="timeago small"
     date="2022-01-14 00:00:00 +0800"
-    >Jan 14</em>
+    >01월 14일</em>
 
             <h3 class="pt-0 mt-1 mb-3" data-toc-skip>04. 제네릭</h3>
             <div class="text-muted small">
@@ -1730,7 +1720,7 @@ Stack에는 정말로 많은 Type의 데이터가 들어간다. Number String Bo
 
 <em class="timeago small"
     date="2022-01-14 00:00:00 +0800"
-    >Jan 14</em>
+    >01월 14일</em>
 
             <h3 class="pt-0 mt-1 mb-3" data-toc-skip>05. 필수가 아닌 파라미터</h3>
             <div class="text-muted small">
@@ -1766,14 +1756,14 @@ consolePrint(1, 2); // 1, 2, unde...
 <div class="post-navigation d-flex justify-content-between">
   
   <a href="/posts/09.extending_types/" class="btn btn-outline-primary"
-    prompt="Older">
+    prompt="이전 글">
     <p>09. 타입 확장하기</p>
   </a>
   
 
   
   <a href="/posts/11.enum/" class="btn btn-outline-primary"
-    prompt="Newer">
+    prompt="다음 글">
     <p>11. 열거형</p>
   </a>
   
@@ -1801,10 +1791,10 @@ consolePrint(1, 2); // 1, 2, unde...
     <div class="footer-left">
       <p class="mb-0">
         © 2022
-        <a href="https://twitter.com/username">your_full_name</a>.
+        <a href="https://twitter.com/username">Univdev</a>.
         
         <span data-toggle="tooltip" data-placement="top"
-          title="Except where otherwise noted, the blog posts on this site are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) License by the author.">Some rights reserved.</span>
+          title="명시되지 않는 한 이 사이트의 블로그 게시물은 작성자의 Creative Commons Attribution 4.0 International(CC BY 4.0) 라이선스에 따라 사용이 허가되었습니다.">일부 권리 보유</span>
         
       </p>
     </div>
@@ -1888,7 +1878,7 @@ SimpleJekyllSearch({
   resultsContainer: document.getElementById('search-results'),
   json: '/assets/js/data/search.json',
   searchResultTemplate: '<div class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-lg-4 pr-lg-4 pl-xl-0 pr-xl-0">  <a href="{url}">{title}</a>  <div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1">    {categories}    {tags}  </div>  <p>{snippet}</p></div>',
-  noResultsText: '<p class="mt-5">Oops! No result founds.</p>',
+  noResultsText: '<p class="mt-5">검색 결과가 없습니다.</p>',
   templateMiddleware: function(prop, value, template) {
     if (prop === 'categories') {
       if (value === '') {

@@ -2,18 +2,18 @@
 
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>http://localhost:4000/</id>
-  <title>Chirpy</title>
-  <subtitle>A minimal, portfolio, sidebar, bootstrap Jekyll theme with responsive web design and focuses on text presentation.</subtitle>
-  <updated>2022-01-18T22:18:29+08:00</updated>
+  <title>Univdev</title>
+  <subtitle>프론트엔드 엔지니어 박찬영입니다! Vue, Nuxt, React, React Native를 주력으로 사용합니다.</subtitle>
+  <updated>2022-01-18T22:21:51+08:00</updated>
   <author>
-    <name>your_full_name</name>
+    <name>Univdev</name>
     <uri>http://localhost:4000/</uri>
   </author>
   <link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml"/>
-  <link rel="alternate" type="text/html" hreflang="en"
+  <link rel="alternate" type="text/html" hreflang="ko-KR"
     href="http://localhost:4000/"/>
   <generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator>
-  <rights> © 2022 your_full_name </rights>
+  <rights> © 2022 Univdev </rights>
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
@@ -29,7 +29,7 @@
     <id>http://localhost:4000/posts/999.typescript_%EC%97%90%EB%9F%AC/</id>
     <content src="http://localhost:4000/posts/999.typescript_%EC%97%90%EB%9F%AC/" />
     <author>
-      <name>your_full_name</name>
+      <name>Univdev</name>
     </author>
 
   
@@ -75,7 +75,7 @@ Reference - https://grr1.tistory.com/42
     <id>http://localhost:4000/posts/11.enum/</id>
     <content src="http://localhost:4000/posts/11.enum/" />
     <author>
-      <name>your_full_name</name>
+      <name>Univdev</name>
     </author>
 
   
@@ -120,7 +120,7 @@ const paint = (brush) =&amp;gt; {
     <id>http://localhost:4000/posts/10.class/</id>
     <content src="http://localhost:4000/posts/10.class/" />
     <author>
-      <name>your_full_name</name>
+      <name>Univdev</name>
     </author>
 
   
@@ -167,7 +167,7 @@ class를 구성하고 있는 변수들은 반드시 co...
     <id>http://localhost:4000/posts/09.extending_types/</id>
     <content src="http://localhost:4000/posts/09.extending_types/" />
     <author>
-      <name>your_full_name</name>
+      <name>Univdev</name>
     </author>
 
   
@@ -221,7 +221,7 @@ interfa...
     <id>http://localhost:4000/posts/08.index_signatures/</id>
     <content src="http://localhost:4000/posts/08.index_signatures/" />
     <author>
-      <name>your_full_name</name>
+      <name>Univdev</name>
     </author>
 
   

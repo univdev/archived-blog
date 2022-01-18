@@ -1,9 +1,9 @@
 
 
 {
-  "name": "Chirpy",
-  "short_name": "Chirpy",
-  "description": "A minimal, portfolio, sidebar, bootstrap Jekyll theme with responsive web design and focuses on text presentation.",
+  "name": "Univdev",
+  "short_name": "Univdev",
+  "description": "프론트엔드 엔지니어 박찬영입니다! Vue, Nuxt, React, React Native를 주력으로 사용합니다.",
   "icons": [
     {
       "src": "/assets/img/favicons/android-chrome-192x192.png",

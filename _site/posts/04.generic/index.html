@@ -6,7 +6,7 @@
 
 
 
-<html lang="en"
+<html lang="ko-KR"
   
 >
 
@@ -21,10 +21,10 @@
   
 
     <!-- i18n for `_javascript/utils/timeago.js` -->
-    <meta name="day-prompt" content="days ago">
-    <meta name="hour-prompt" content="hours ago">
-    <meta name="minute-prompt" content="minutes ago">
-    <meta name="justnow-prompt" content="just now">
+    <meta name="day-prompt" content="일 전">
+    <meta name="hour-prompt" content="시간 전">
+    <meta name="minute-prompt" content="분 전">
+    <meta name="justnow-prompt" content="방금">
 
     
 
@@ -35,12 +35,12 @@
   <!-- Begin Jekyll SEO tag v2.7.1 -->
 <meta name="generator" content="Jekyll v4.2.1" />
 <meta property="og:title" content="제네릭" />
-<meta property="og:locale" content="en" />
+<meta property="og:locale" content="ko_KR" />
 <meta name="description" content="Generic Function 만약 당신이 Java를 익숙하게 사용하는 개발자라면 이 섹션은 이해하기 정말 쉬울 것이다. 다른 언어에서 흔히들 Generic이라고 부르는 것과 동일하기 때문이다. 예를 들어, 당신이 Stack 자료구조를 직접 구현한다고 해보자. Stack에는 정말로 많은 Type의 데이터가 들어간다. Number String Boolean와 같은 모든 유형을 포함해야 한다. class Stack { private data = []; public push(item) { this.data.push(item); } public pop() { return this.data.pop(); } } 물론 이런 형태로 작성할 수는 있겠으나, 우리가 원하는 Typescript의 형태를 띄려면 각 Method와 Paramter의 Return Type을 정의해야 한다. 만약 제네릭이 없다면 class NumberStack { private data: number[] = []; public push(item: number) { this.data.push(item); } public pop(): number { return this.data.pop(); } } class StringStack { private data: string[] = []; public push(item: string) { this.data.push(item); } public pop(): string { return this.data.pop(); } } /// ... 이런 식으로 모든 유형에 대응하는 StackClass를 정의해야 할 것이다. 이건 사실 말이 안되므로, 제네릭을 사용해서 구현을 하면 아래와 같이 표현할 수 있다. class Stack&lt;T&gt; { private data: T[] = []; public push(item: T) { this.data.push(item); } public pop(): T | null { return this.data.pop() || null; } } class 이름 뒤에 &lt;T&gt;가 추가 되었다. 이는 Type을 받을 수 있는 Type Variable이라고 불린다. 제네릭 타입의 객체를 사용할 때는 아래와 같이 사용하면 된다. 1 const stack: Stack&lt;number&gt; = new Stack&lt;number&gt;(); 이렇게 선언하면 number타입으로 구성 된 Stack 클래스를 사용할 수 있다. 예시 ```typescript class Stack { private data: T[] = []; public push(item: T) { this.data.push(item); } public pop(): T | null { return this.data.pop() || null; } }" />
 <meta property="og:description" content="Generic Function 만약 당신이 Java를 익숙하게 사용하는 개발자라면 이 섹션은 이해하기 정말 쉬울 것이다. 다른 언어에서 흔히들 Generic이라고 부르는 것과 동일하기 때문이다. 예를 들어, 당신이 Stack 자료구조를 직접 구현한다고 해보자. Stack에는 정말로 많은 Type의 데이터가 들어간다. Number String Boolean와 같은 모든 유형을 포함해야 한다. class Stack { private data = []; public push(item) { this.data.push(item); } public pop() { return this.data.pop(); } } 물론 이런 형태로 작성할 수는 있겠으나, 우리가 원하는 Typescript의 형태를 띄려면 각 Method와 Paramter의 Return Type을 정의해야 한다. 만약 제네릭이 없다면 class NumberStack { private data: number[] = []; public push(item: number) { this.data.push(item); } public pop(): number { return this.data.pop(); } } class StringStack { private data: string[] = []; public push(item: string) { this.data.push(item); } public pop(): string { return this.data.pop(); } } /// ... 이런 식으로 모든 유형에 대응하는 StackClass를 정의해야 할 것이다. 이건 사실 말이 안되므로, 제네릭을 사용해서 구현을 하면 아래와 같이 표현할 수 있다. class Stack&lt;T&gt; { private data: T[] = []; public push(item: T) { this.data.push(item); } public pop(): T | null { return this.data.pop() || null; } } class 이름 뒤에 &lt;T&gt;가 추가 되었다. 이는 Type을 받을 수 있는 Type Variable이라고 불린다. 제네릭 타입의 객체를 사용할 때는 아래와 같이 사용하면 된다. 1 const stack: Stack&lt;number&gt; = new Stack&lt;number&gt;(); 이렇게 선언하면 number타입으로 구성 된 Stack 클래스를 사용할 수 있다. 예시 ```typescript class Stack { private data: T[] = []; public push(item: T) { this.data.push(item); } public pop(): T | null { return this.data.pop() || null; } }" />
 <link rel="canonical" href="http://localhost:4000/posts/04.generic/" />
 <meta property="og:url" content="http://localhost:4000/posts/04.generic/" />
-<meta property="og:site_name" content="Chirpy" />
+<meta property="og:site_name" content="Univdev" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2022-01-14T00:00:00+08:00" />
 <meta name="twitter:card" content="summary" />
@@ -51,7 +51,7 @@
 <!-- End Jekyll SEO tag -->
 
 
-  <title>04. 제네릭 | Chirpy
+  <title>04. 제네릭 | Univdev
   </title>
 
   <!--
@@ -66,8 +66,8 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png">
 <link rel="manifest" href="/assets/img/favicons/site.webmanifest">
 <link rel="shortcut icon" href="/assets/img/favicons/favicon.ico">
-<meta name="apple-mobile-web-app-title" content="Chirpy">
-<meta name="application-name" content="Chirpy">
+<meta name="apple-mobile-web-app-title" content="Univdev">
+<meta name="application-name" content="Univdev">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="msapplication-config" content="/assets/img/favicons/browserconfig.xml">
 <meta name="theme-color" content="#ffffff">
@@ -253,21 +253,21 @@
   The Side Bar
 -->
 
-<div id="sidebar" class="d-flex flex-column align-items-end" lang="en">
+<div id="sidebar" class="d-flex flex-column align-items-end" lang="ko-KR">
   <div class="profile-wrapper text-center">
     <div id="avatar">
       <a href="/" alt="avatar" class="mx-auto">
         
           
-          <img src="https://cdn.jsdelivr.net/gh/cotes2020/chirpy-images@f4e0354b674f65a53b8917f0f786ed2956898cc1/commons/avatar.jpg" alt="avatar" onerror="this.style.display='none'">
+          <img src="/assets/img/profile.png" alt="avatar" onerror="this.style.display='none'">
         
       </a>
     </div>
 
     <div class="site-title mt-3">
-      <a href="/">Chirpy</a>
+      <a href="/">Univdev</a>
     </div>
-    <div class="site-subtitle font-italic">A text-focused Jekyll theme</div>
+    <div class="site-subtitle font-italic">프론트엔드 엔지니어 박찬영입니다!</div>
 
   </div><!-- .profile-wrapper -->
 
@@ -277,7 +277,7 @@
     <li class="nav-item">
       <a href="/" class="nav-link">
         <i class="fa-fw fas fa-home ml-xl-3 mr-xl-3 unloaded"></i>
-        <span>HOME</span>
+        <span>홈</span>
       </a>
     </li>
     <!-- the real tabs -->
@@ -287,7 +287,7 @@
         <i class="fa-fw fas fa-stream ml-xl-3 mr-xl-3 unloaded"></i>
         
 
-        <span>CATEGORIES</span>
+        <span>카테고리</span>
       </a>
     </li> <!-- .nav-item -->
     
@@ -296,7 +296,7 @@
         <i class="fa-fw fas fa-tag ml-xl-3 mr-xl-3 unloaded"></i>
         
 
-        <span>TAGS</span>
+        <span>태그</span>
       </a>
     </li> <!-- .nav-item -->
     
@@ -305,7 +305,7 @@
         <i class="fa-fw fas fa-archive ml-xl-3 mr-xl-3 unloaded"></i>
         
 
-        <span>ARCHIVES</span>
+        <span>아카이브</span>
       </a>
     </li> <!-- .nav-item -->
     
@@ -314,7 +314,7 @@
         <i class="fa-fw fas fa-info-circle ml-xl-3 mr-xl-3 unloaded"></i>
         
 
-        <span>ABOUT</span>
+        <span>정보</span>
       </a>
     </li> <!-- .nav-item -->
     
@@ -337,7 +337,7 @@
       
 
       
-      <a href="https://github.com/github_username" aria-label="github"
+      <a href="https://github.com/univdev" aria-label="github"
         target="_blank" rel="noopener">
         <i class="fab fa-github"></i>
       </a>
@@ -347,18 +347,8 @@
       
 
       
-      <a href="https://twitter.com/twitter_username" aria-label="twitter"
-        target="_blank" rel="noopener">
-        <i class="fab fa-twitter"></i>
-      </a>
-      
-
-    
-      
-
-      
       <a href="
-          javascript:location.href = 'mailto:' + ['example','doamin.com'].join('@')" aria-label="email"
+          javascript:location.href = 'mailto:' + ['pcydeveloper','gmail.com'].join('@')" aria-label="email"
         >
         <i class="fas fa-envelope"></i>
       </a>
@@ -398,7 +388,7 @@
         
           <span>
             <a href="/">
-              Home
+              홈
             </a>
           </span>
 
@@ -427,17 +417,17 @@
     <i id="sidebar-trigger" class="fas fa-bars fa-fw"></i>
 
     <div id="topbar-title">
-      Post
+      포스트
     </div>
 
     <i id="search-trigger" class="fas fa-search fa-fw"></i>
     <span id="search-wrapper" class="align-items-center">
       <i class="fas fa-search fa-fw"></i>
       <input class="form-control" id="search-input" type="search"
-        aria-label="search" autocomplete="off" placeholder="Search...">
+        aria-label="search" autocomplete="off" placeholder="검색...">
       <i class="fa fa-times-circle fa-fw" id="search-cleaner"></i>
     </span>
-    <span id="search-cancel" >Cancel</span>
+    <span id="search-cancel" >취소</span>
   </div>
 
 </div>
@@ -610,7 +600,7 @@
     By
     <em>
       
-        <a href="https://twitter.com/username">your_full_name</a>
+        <a href="https://twitter.com/username">Univdev</a>
       
     </em>
   </div>
@@ -619,7 +609,7 @@
     <div>
       <!-- published date -->
       <span>
-        Posted
+        게시
         <!--
   Date format snippet
   See: ${JS_ROOT}/utils/timeago.js
@@ -634,15 +624,15 @@
     
       data-toggle="tooltip"
       data-placement="bottom"
-      title="Fri, Jan 14, 2022, 12:00 AM +0800"
-    >Jan 14</em>
+      title="2022-01-14, 00:00 +0800"
+    >01월 14일</em>
 
       </span>
 
       <!-- lastmod date -->
       
       <span>
-        Updated
+        업데이트
         <!--
   Date format snippet
   See: ${JS_ROOT}/utils/timeago.js
@@ -658,8 +648,8 @@
     
       data-toggle="tooltip"
       data-placement="bottom"
-      title="Mon, Jan 17, 2022, 11:21 PM +0900"
-    >Jan 17</em>
+      title="2022-01-17, 23:21 +0900"
+    >01월 17일</em>
 
       </span>
       
@@ -684,8 +674,8 @@
 
 <!-- return element -->
 <span class="readtime" data-toggle="tooltip" data-placement="bottom"
-  title="642 words">
-  <em>3 min</em> read</span>
+  title="642 단어">
+  <em>3 분</em>읽는 시간</span>
 
 
       <!-- page views -->
@@ -750,14 +740,14 @@
 이는 <code class="language-plaintext highlighter-rouge">Type</code>을 받을 수 있는 <code class="language-plaintext highlighter-rouge">Type Variable</code>이라고 불린다. 제네릭 타입의 객체를 사용할 때는 아래와 같이 사용하면 된다.</p>
 <div class="language-typescript highlighter-rouge"><div class="code-header">
         <span data-label-text="TypeScript"><i class="fas fa-code small"></i></span>
-      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+      <button aria-label="copy" data-title-succeed="복사되었습니다!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">stack</span><span class="p">:</span> <span class="nx">Stack</span><span class="o">&lt;</span><span class="kr">number</span><span class="o">&gt;</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Stack</span><span class="o">&lt;</span><span class="kr">number</span><span class="o">&gt;</span><span class="p">();</span>
 </pre></td></tr></tbody></table></code></div></div>
 <p>이렇게 선언하면 <code class="language-plaintext highlighter-rouge">number</code>타입으로 구성 된 <code class="language-plaintext highlighter-rouge">Stack</code> 클래스를 사용할 수 있다.</p>
 <h2 id="예시">예시 <a href="#예시" class="anchor"><i class="fas fa-hashtag"></i></a></h2></h2>
 <div class="language-typescript highlighter-rouge"><div class="code-header">
         <span data-label-text="TypeScript"><i class="fas fa-code small"></i></span>
-      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+      <button aria-label="copy" data-title-succeed="복사되었습니다!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -790,7 +780,7 @@
 <p><code class="language-plaintext highlighter-rouge">Type Variable</code>은 여러개를 선언할 수도 있다.</p>
 <div class="language-typescript highlighter-rouge"><div class="code-header">
         <span data-label-text="TypeScript"><i class="fas fa-code small"></i></span>
-      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+      <button aria-label="copy" data-title-succeed="복사되었습니다!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -823,7 +813,7 @@
 <p>가독성 측면에서 쓸 일이 진짜 없을 것 같지만 가능은 하다고 하니 알아보겠다.</p>
 <div class="language-typescript highlighter-rouge"><div class="code-header">
         <span data-label-text="TypeScript"><i class="fas fa-code small"></i></span>
-      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+      <button aria-label="copy" data-title-succeed="복사되었습니다!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -836,7 +826,7 @@
 </pre></td></tr></tbody></table></code></div></div>
 <div class="language-typescript highlighter-rouge"><div class="code-header">
         <span data-label-text="TypeScript"><i class="fas fa-code small"></i></span>
-      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+      <button aria-label="copy" data-title-succeed="복사되었습니다!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 </pre></td><td class="rouge-code"><pre><span class="nx">getFirst</span><span class="o">&lt;</span><span class="nx">Stack</span><span class="o">&lt;</span><span class="kr">number</span><span class="o">&gt;</span><span class="p">,</span> <span class="kr">number</span><span class="p">)(</span><span class="nx">numberStack</span><span class="p">);</span>
 <span class="nx">getFirst</span><span class="o">&lt;</span><span class="kr">number</span><span class="p">,</span> <span class="kr">number</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// Type 'number' does not satisfy the constraint 'Stack&lt;number&gt;'.</span>
@@ -868,11 +858,11 @@
 
         
 
-        This post is licensed under 
+        이 기사는 저작권자의 
         <a href="https://creativecommons.org/licenses/by/4.0/">
           CC BY 4.0
         </a>
-         by the author.
+         라이센스를 따릅니다.
 
       
     </div>
@@ -882,26 +872,26 @@
 -->
 
 <div class="share-wrapper">
-  <span class="share-label text-muted mr-1">Share</span>
+  <span class="share-label text-muted mr-1">공유하기</span>
   <span class="share-icons">
     
     
 
     
       
-        <a href="https://twitter.com/intent/tweet?text=04. 제네릭 - Chirpy&url=http://localhost:4000/posts/04.generic/" data-toggle="tooltip" data-placement="top"
+        <a href="https://twitter.com/intent/tweet?text=04. 제네릭 - Univdev&url=http://localhost:4000/posts/04.generic/" data-toggle="tooltip" data-placement="top"
           title="Twitter" target="_blank" rel="noopener" aria-label="Twitter">
           <i class="fa-fw fab fa-twitter"></i>
         </a>
     
       
-        <a href="https://www.facebook.com/sharer/sharer.php?title=04. 제네릭 - Chirpy&u=http://localhost:4000/posts/04.generic/" data-toggle="tooltip" data-placement="top"
+        <a href="https://www.facebook.com/sharer/sharer.php?title=04. 제네릭 - Univdev&u=http://localhost:4000/posts/04.generic/" data-toggle="tooltip" data-placement="top"
           title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fa-fw fab fa-facebook-square"></i>
         </a>
     
       
-        <a href="https://telegram.me/share?text=04. 제네릭 - Chirpy&url=http://localhost:4000/posts/04.generic/" data-toggle="tooltip" data-placement="top"
+        <a href="https://telegram.me/share?text=04. 제네릭 - Univdev&url=http://localhost:4000/posts/04.generic/" data-toggle="tooltip" data-placement="top"
           title="Telegram" target="_blank" rel="noopener" aria-label="Telegram">
           <i class="fa-fw fab fa-telegram"></i>
         </a>
@@ -909,8 +899,8 @@
 
     <i id="copy-link" class="fa-fw fas fa-link small"
         data-toggle="tooltip" data-placement="top"
-        title="Copy link"
-        title-succeed="Link copied successfully!">
+        title="링크 복사하기"
+        title-succeed="링크가 복사되었습니다!">
     </i>
 
   </span>
@@ -950,7 +940,7 @@
 
 
   <div id="access-lastmod" class="post">
-    <div class="panel-heading">Recently Updated</div>
+    <div class="panel-heading">최근 업데이트</div>
     <ul class="post-content pl-0 pb-1 ml-1 mt-2">
       
         
@@ -1014,7 +1004,7 @@
 <script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.js"></script>
 
 <div id="toc-wrapper" class="pl-0 pr-4 mb-5">
-  <div class="panel-heading pl-3 pt-2 mb-2">Contents</div>
+  <div class="panel-heading pl-3 pt-2 mb-2">바로가기</div>
   <nav id="toc" data-toggle="toc"></nav>
 </div>
 
@@ -1226,7 +1216,7 @@
 
   <div id="related-posts" class="mt-5 mb-2 mb-sm-4">
     <h3 class="pt-2 mt-1 mb-4 ml-1"
-      data-toc-skip>Further Reading</h3>
+      data-toc-skip>관련된 글</h3>
     <div class="card-deck mb-4">
     
       
@@ -1245,7 +1235,7 @@
 
 <em class="timeago small"
     date="2022-01-14 00:00:00 +0800"
-    >Jan 14</em>
+    >01월 14일</em>
 
             <h3 class="pt-0 mt-1 mb-3" data-toc-skip>03. 시그니처</h3>
             <div class="text-muted small">
@@ -1287,7 +1277,7 @@ function doSomething(fn: DescribableFunction) {
 
 <em class="timeago small"
     date="2022-01-14 00:00:00 +0800"
-    >Jan 14</em>
+    >01월 14일</em>
 
             <h3 class="pt-0 mt-1 mb-3" data-toc-skip>05. 필수가 아닌 파라미터</h3>
             <div class="text-muted small">
@@ -1330,7 +1320,7 @@ consolePrint(1, 2); // 1,...
 
 <em class="timeago small"
     date="2022-01-14 00:00:00 +0800"
-    >Jan 14</em>
+    >01월 14일</em>
 
             <h3 class="pt-0 mt-1 mb-3" data-toc-skip>06. 오버로딩</h3>
             <div class="text-muted small">
@@ -1365,14 +1355,14 @@ consolePrint(1, 2); // 1,...
 <div class="post-navigation d-flex justify-content-between">
   
   <a href="/posts/03.signatures/" class="btn btn-outline-primary"
-    prompt="Older">
+    prompt="이전 글">
     <p>03. 시그니처</p>
   </a>
   
 
   
   <a href="/posts/05.optional_parameters/" class="btn btn-outline-primary"
-    prompt="Newer">
+    prompt="다음 글">
     <p>05. 필수가 아닌 파라미터</p>
   </a>
   
@@ -1400,10 +1390,10 @@ consolePrint(1, 2); // 1,...
     <div class="footer-left">
       <p class="mb-0">
         © 2022
-        <a href="https://twitter.com/username">your_full_name</a>.
+        <a href="https://twitter.com/username">Univdev</a>.
         
         <span data-toggle="tooltip" data-placement="top"
-          title="Except where otherwise noted, the blog posts on this site are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) License by the author.">Some rights reserved.</span>
+          title="명시되지 않는 한 이 사이트의 블로그 게시물은 작성자의 Creative Commons Attribution 4.0 International(CC BY 4.0) 라이선스에 따라 사용이 허가되었습니다.">일부 권리 보유</span>
         
       </p>
     </div>
@@ -1487,7 +1477,7 @@ SimpleJekyllSearch({
   resultsContainer: document.getElementById('search-results'),
   json: '/assets/js/data/search.json',
   searchResultTemplate: '<div class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-lg-4 pr-lg-4 pl-xl-0 pr-xl-0">  <a href="{url}">{title}</a>  <div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1">    {categories}    {tags}  </div>  <p>{snippet}</p></div>',
-  noResultsText: '<p class="mt-5">Oops! No result founds.</p>',
+  noResultsText: '<p class="mt-5">검색 결과가 없습니다.</p>',
   templateMiddleware: function(prop, value, template) {
     if (prop === 'categories') {
       if (value === '') {
