@@ -43,13 +43,13 @@
 <meta property="og:url" content="http://localhost:4000/posts/09.extending_types/" />
 <meta property="og:site_name" content="Univdev" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-01-18T00:00:00+08:00" />
+<meta property="article:published_time" content="2022-01-18T00:00:00+09:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="[Typescript] 09. 타입 확장" />
 <meta name="twitter:site" content="@twitter_username" />
 <meta name="twitter:creator" content="@박 찬영" />
 <script type="application/ld+json">
-{"url":"http://localhost:4000/posts/09.extending_types/","headline":"[Typescript] 09. 타입 확장","datePublished":"2022-01-18T00:00:00+08:00","dateModified":"2022-01-18T00:00:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/09.extending_types/"},"author":{"@type":"Person","name":"박 찬영"},"description":"Extending Types class가 상속이 되듯이, type도 상속이 가능하다. 1 2 3 4 5 6 7 8 9 10 11 type BasicAddress = { name?: string; street: string; city: string; country: string; postalCode: string; } interface AddressWithUnit extends BasicAddress { unit: string; } 우편번호를 입력 받을 때, 공통적으로 입력 받아야 하는 항목에 대해서 우선적으로 정의하고 추후에 선택사항을 따로 정의한 interface에 상속하는 방법으로 type을 확장시킬 수 있다. 다만, extends 키워드는 interface에서만 사용할 수 있다.","@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"datePublished":"2022-01-18T00:00:00+09:00","headline":"[Typescript] 09. 타입 확장","url":"http://localhost:4000/posts/09.extending_types/","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/09.extending_types/"},"author":{"@type":"Person","name":"박 찬영"},"description":"Extending Types class가 상속이 되듯이, type도 상속이 가능하다. 1 2 3 4 5 6 7 8 9 10 11 type BasicAddress = { name?: string; street: string; city: string; country: string; postalCode: string; } interface AddressWithUnit extends BasicAddress { unit: string; } 우편번호를 입력 받을 때, 공통적으로 입력 받아야 하는 항목에 대해서 우선적으로 정의하고 추후에 선택사항을 따로 정의한 interface에 상속하는 방법으로 type을 확장시킬 수 있다. 다만, extends 키워드는 interface에서만 사용할 수 있다.","@type":"BlogPosting","dateModified":"2022-01-18T00:00:00+09:00","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -596,11 +596,11 @@
 
 
 <em class="timeago"
-    date="2022-01-18 00:00:00 +0800"
+    date="2022-01-18 00:00:00 +0900"
     
       data-toggle="tooltip"
       data-placement="bottom"
-      title="2022-01-18, 00:00 +0800"
+      title="2022-01-18, 00:00 +0900"
     >01월 18일</em>
 
       </span>
@@ -1135,7 +1135,7 @@
 
 
 <em class="timeago small"
-    date="2022-01-18 00:00:00 +0800"
+    date="2022-01-18 00:00:00 +0900"
     >01월 18일</em>
 
             <h3 class="pt-0 mt-1 mb-3" data-toc-skip>[Typescript] 03. 시그니처</h3>
@@ -1177,7 +1177,7 @@ function doSomething(fn: DescribableFunction) {
 
 
 <em class="timeago small"
-    date="2022-01-18 00:00:00 +0800"
+    date="2022-01-18 00:00:00 +0900"
     >01월 18일</em>
 
             <h3 class="pt-0 mt-1 mb-3" data-toc-skip>[Typescript] 04. 제네릭</h3>
@@ -1214,7 +1214,7 @@ Stack에는 정말로 많은 Type의 데이터가 들어간다. Number String Bo
 
 
 <em class="timeago small"
-    date="2022-01-18 00:00:00 +0800"
+    date="2022-01-18 00:00:00 +0900"
     >01월 18일</em>
 
             <h3 class="pt-0 mt-1 mb-3" data-toc-skip>[Typescript] 05. 필수가 아닌 파라미터</h3>

@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>Univdev</title>
   <subtitle>프론트엔드 엔지니어 박찬영입니다! Vue, Nuxt, React, React Native를 주력으로 사용합니다.</subtitle>
-  <updated>2022-01-18T22:32:52+08:00</updated>
+  <updated>2022-01-18T23:41:16+09:00</updated>
   <author>
     <name>Univdev</name>
     <uri>http://localhost:4000/</uri>
@@ -22,9 +22,9 @@
   <entry>
     <title>[Typescript] 999. Typescript 에러</title>
     <link href="http://localhost:4000/posts/999.typescript_%EC%97%90%EB%9F%AC/" rel="alternate" type="text/html" title="[Typescript] 999. Typescript 에러" />
-    <published>2022-01-18T00:00:00+08:00</published>
+    <published>2022-01-18T00:00:00+09:00</published>
   
-    <updated>2022-01-18T00:00:00+08:00</updated>
+    <updated>2022-01-18T00:00:00+09:00</updated>
   
     <id>http://localhost:4000/posts/999.typescript_%EC%97%90%EB%9F%AC/</id>
     <content src="http://localhost:4000/posts/999.typescript_%EC%97%90%EB%9F%AC/" />
@@ -68,9 +68,9 @@ Reference - https://grr1.tistory.com/42
   <entry>
     <title>[Typescript] 11. 열거형</title>
     <link href="http://localhost:4000/posts/11.enum/" rel="alternate" type="text/html" title="[Typescript] 11. 열거형" />
-    <published>2022-01-18T00:00:00+08:00</published>
+    <published>2022-01-18T00:00:00+09:00</published>
   
-    <updated>2022-01-18T00:00:00+08:00</updated>
+    <updated>2022-01-18T00:00:00+09:00</updated>
   
     <id>http://localhost:4000/posts/11.enum/</id>
     <content src="http://localhost:4000/posts/11.enum/" />
@@ -115,9 +115,9 @@ const paint = (brush) =&amp;gt; {
   <entry>
     <title>[Typescript] 10. 클래스</title>
     <link href="http://localhost:4000/posts/10.class/" rel="alternate" type="text/html" title="[Typescript] 10. 클래스" />
-    <published>2022-01-18T00:00:00+08:00</published>
+    <published>2022-01-18T00:00:00+09:00</published>
   
-    <updated>2022-01-18T00:00:00+08:00</updated>
+    <updated>2022-01-18T00:00:00+09:00</updated>
   
     <id>http://localhost:4000/posts/10.class/</id>
     <content src="http://localhost:4000/posts/10.class/" />
@@ -164,9 +164,9 @@ class를 구성하고 있는 변수들은 반드시 co...
   <entry>
     <title>[Typescript] 09. 타입 확장</title>
     <link href="http://localhost:4000/posts/09.extending_types/" rel="alternate" type="text/html" title="[Typescript] 09. 타입 확장" />
-    <published>2022-01-18T00:00:00+08:00</published>
+    <published>2022-01-18T00:00:00+09:00</published>
   
-    <updated>2022-01-18T00:00:00+08:00</updated>
+    <updated>2022-01-18T00:00:00+09:00</updated>
   
     <id>http://localhost:4000/posts/09.extending_types/</id>
     <content src="http://localhost:4000/posts/09.extending_types/" />
@@ -220,9 +220,9 @@ interfa...
   <entry>
     <title>[Typescript] 08. 인덱스 서명</title>
     <link href="http://localhost:4000/posts/08.index_signatures/" rel="alternate" type="text/html" title="[Typescript] 08. 인덱스 서명" />
-    <published>2022-01-18T00:00:00+08:00</published>
+    <published>2022-01-18T00:00:00+09:00</published>
   
-    <updated>2022-01-18T00:00:00+08:00</updated>
+    <updated>2022-01-18T00:00:00+09:00</updated>
   
     <id>http://localhost:4000/posts/08.index_signatures/</id>
     <content src="http://localhost:4000/posts/08.index_signatures/" />
