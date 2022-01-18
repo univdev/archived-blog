@@ -1,0 +1,258 @@
+
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>http://localhost:4000/</id>
+  <title>Chirpy</title>
+  <subtitle>A minimal, portfolio, sidebar, bootstrap Jekyll theme with responsive web design and focuses on text presentation.</subtitle>
+  <updated>2022-01-18T22:18:29+08:00</updated>
+  <author>
+    <name>your_full_name</name>
+    <uri>http://localhost:4000/</uri>
+  </author>
+  <link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml"/>
+  <link rel="alternate" type="text/html" hreflang="en"
+    href="http://localhost:4000/"/>
+  <generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator>
+  <rights> © 2022 your_full_name </rights>
+  <icon>/assets/img/favicons/favicon.ico</icon>
+  <logo>/assets/img/favicons/favicon-96x96.png</logo>
+
+
+  
+  <entry>
+    <title>999. Typescript 에러 모음</title>
+    <link href="http://localhost:4000/posts/999.typescript_%EC%97%90%EB%9F%AC/" rel="alternate" type="text/html" title="999. Typescript 에러 모음" />
+    <published>2022-01-14T00:00:00+08:00</published>
+  
+    <updated>2022-01-14T00:00:00+08:00</updated>
+  
+    <id>http://localhost:4000/posts/999.typescript_%EC%97%90%EB%9F%AC/</id>
+    <content src="http://localhost:4000/posts/999.typescript_%EC%97%90%EB%9F%AC/" />
+    <author>
+      <name>your_full_name</name>
+    </author>
+
+  
+    
+    <category term="Typescript" />
+    
+    <category term="Note" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Typescript 관련 컴파일 오류
+목록
+Cannot find module ‘typescript’
+https://stackoverflow.com/questions/44611526/how-to-fix-cannot-find-module-typescript-in-angular-4
+
+npm install -g typescript
+
+npm link typescript
+
+Reference - https://grr1.tistory.com/42
+
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>11. 열거형</title>
+    <link href="http://localhost:4000/posts/11.enum/" rel="alternate" type="text/html" title="11. 열거형" />
+    <published>2022-01-14T00:00:00+08:00</published>
+  
+    <updated>2022-01-17T22:21:18+08:00</updated>
+  
+    <id>http://localhost:4000/posts/11.enum/</id>
+    <content src="http://localhost:4000/posts/11.enum/" />
+    <author>
+      <name>your_full_name</name>
+    </author>
+
+  
+    
+    <category term="Typescript" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Enum
+개요
+프로그래밍을 배우다보면 Enumeration 자료형에 대해서 들어본 적이 있을 것이다.
+일정 범위 안에 들어오는 값만을 고를 수 있는 자료형으로, 열거형이라고 부른다. 아래 예제를 보자.
+const paint = (brush) =&amp;gt; {
+  if (brush === 'square') return console.log('square');
+  if (brush === 'circle') return console.log('circle');
+  return console.log('nothing');
+};
+
+그림판에서 brush의 모양에 따라 그려지는 방식을 다르게 한다고 하면 위와 같이 구현이 가능할 것이다.
+하지만 매개변수의 brush의 값은 square circle 둘 중 하나여야만 정상...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>10. 클래스</title>
+    <link href="http://localhost:4000/posts/10.class/" rel="alternate" type="text/html" title="10. 클래스" />
+    <published>2022-01-14T00:00:00+08:00</published>
+  
+    <updated>2022-01-17T22:21:18+08:00</updated>
+  
+    <id>http://localhost:4000/posts/10.class/</id>
+    <content src="http://localhost:4000/posts/10.class/" />
+    <author>
+      <name>your_full_name</name>
+    </author>
+
+  
+    
+    <category term="Typescript" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Class
+typescript를 쓰는 이유라고 할 수 있는 class이다.
+javascript에서도 class문법이 이미 있긴 하지만 우리가 원하는 객체지향 프로그래밍 언어 수준까지는 지원해주지 않기 때문에 javascript에서의 class는 그저 좀 더 구체적인 객체처럼 다루기 위해서 쓰는 것에 불과했기 때문이다.
+Field
+class Point {
+  x: number;
+  y: number;
+}
+const pt = new Point();
+
+객체의 타입 선언과 비슷한 문법으로 class의 field 정의를 할 수 있다. (다만 위 코드는 오류가 날 것이다.)
+초기화 생략
+위 코드를 직접 실행 해봤다면 에러가 표시 되는 것을 확인할 수 있었을 것이다.
+class를 구성하고 있는 변수들은 반드시 co...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>09. 타입 확장하기</title>
+    <link href="http://localhost:4000/posts/09.extending_types/" rel="alternate" type="text/html" title="09. 타입 확장하기" />
+    <published>2022-01-14T00:00:00+08:00</published>
+  
+    <updated>2022-01-17T22:21:18+08:00</updated>
+  
+    <id>http://localhost:4000/posts/09.extending_types/</id>
+    <content src="http://localhost:4000/posts/09.extending_types/" />
+    <author>
+      <name>your_full_name</name>
+    </author>
+
+  
+    
+    <category term="Typescript" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Extending Types
+class가 상속이 되듯이, type도 상속이 가능하다.
+type BasicAddress = {
+  name?: string;
+  street: string;
+  city: string;
+  country: string;
+  postalCode: string;
+}
+ 
+interface AddressWithUnit extends BasicAddress {
+  unit: string;
+}
+
+우편번호를 입력 받을 때, 공통적으로 입력 받아야 하는 항목에 대해서 우선적으로 정의하고 추후에 선택사항을 따로 정의한 interface에 상속하는 방법으로 type을 확장시킬 수 있다.
+
+  다만, extends 키워드는 interface에서만 사용할 수 있다.
+
+
+다중 상속
+interfa...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>08. 인덱스 시그니처</title>
+    <link href="http://localhost:4000/posts/08.index_signatures/" rel="alternate" type="text/html" title="08. 인덱스 시그니처" />
+    <published>2022-01-14T00:00:00+08:00</published>
+  
+    <updated>2022-01-17T22:21:18+08:00</updated>
+  
+    <id>http://localhost:4000/posts/08.index_signatures/</id>
+    <content src="http://localhost:4000/posts/08.index_signatures/" />
+    <author>
+      <name>your_full_name</name>
+    </author>
+
+  
+    
+    <category term="Typescript" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Index Signature
+아주 가끔 객체 안에 들어있는 속성들의 key를 특정짓지 못하는 경우가 있을 수 있다.
+그런 경우 객체 속성의 key를 모르는 상태이기 때문에 Type 정의에도 지장이 생긴다. 이럴 경우에는 인덱스 서명 방식을 사용할 수 있다.
+type Props = {
+  [key: number]: string | boolean | Function,
+};
+
+const props: Props = {
+    title: 'Hello world!',
+    1: 'good', // Type '{ title: string; 1: string; }' is not assignable to type 'Props'. Object literal may only specify known properties...
+    </summary>
+  
+
+  </entry>
+
+</feed>
+
+

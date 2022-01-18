@@ -20,26 +20,38 @@
 
   
 
+    <!-- i18n for `_javascript/utils/timeago.js` -->
+    <meta name="day-prompt" content="days ago">
+    <meta name="hour-prompt" content="hours ago">
+    <meta name="minute-prompt" content="minutes ago">
+    <meta name="justnow-prompt" content="just now">
+
+    
+
+    
+
+  
+
   <!-- Begin Jekyll SEO tag v2.7.1 -->
 <meta name="generator" content="Jekyll v4.2.1" />
-<meta property="og:title" content="Categories" />
+<meta property="og:title" content="Typescript 에러 모음" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="A minimal, portfolio, sidebar, bootstrap Jekyll theme with responsive web design and focuses on text presentation." />
-<meta property="og:description" content="A minimal, portfolio, sidebar, bootstrap Jekyll theme with responsive web design and focuses on text presentation." />
-<link rel="canonical" href="http://localhost:4000/categories/" />
-<meta property="og:url" content="http://localhost:4000/categories/" />
+<meta name="description" content="Typescript 관련 컴파일 오류 목록 Cannot find module ‘typescript’ ``` https://stackoverflow.com/questions/44611526/how-to-fix-cannot-find-module-typescript-in-angular-4" />
+<meta property="og:description" content="Typescript 관련 컴파일 오류 목록 Cannot find module ‘typescript’ ``` https://stackoverflow.com/questions/44611526/how-to-fix-cannot-find-module-typescript-in-angular-4" />
+<link rel="canonical" href="http://localhost:4000/posts/999.typescript_%EC%97%90%EB%9F%AC/" />
+<meta property="og:url" content="http://localhost:4000/posts/999.typescript_%EC%97%90%EB%9F%AC/" />
 <meta property="og:site_name" content="Chirpy" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-01-18T22:18:29+08:00" />
+<meta property="article:published_time" content="2022-01-14T00:00:00+08:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Categories" />
+<meta property="twitter:title" content="Typescript 에러 모음" />
 <meta name="twitter:site" content="@twitter_username" />
 <script type="application/ld+json">
-{"url":"http://localhost:4000/categories/","headline":"Categories","datePublished":"2022-01-18T22:18:29+08:00","dateModified":"2022-01-18T22:18:29+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/categories/"},"description":"A minimal, portfolio, sidebar, bootstrap Jekyll theme with responsive web design and focuses on text presentation.","@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"url":"http://localhost:4000/posts/999.typescript_%EC%97%90%EB%9F%AC/","headline":"Typescript 에러 모음","datePublished":"2022-01-14T00:00:00+08:00","dateModified":"2022-01-14T00:00:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/999.typescript_%EC%97%90%EB%9F%AC/"},"description":"Typescript 관련 컴파일 오류 목록 Cannot find module ‘typescript’ ``` https://stackoverflow.com/questions/44611526/how-to-fix-cannot-find-module-typescript-in-angular-4","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>Categories | Chirpy
+  <title>999. Typescript 에러 모음 | Chirpy
   </title>
 
   <!--
@@ -85,7 +97,13 @@
 <link rel="stylesheet" href="/assets/css/style.css">
 
 
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css">
 
+
+
+  <!-- Manific Popup -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/magnific-popup.min.css">
 
 
 
@@ -264,7 +282,7 @@
     </li>
     <!-- the real tabs -->
     
-    <li class="nav-item active">
+    <li class="nav-item">
       <a href="/categories/" class="nav-link">
         <i class="fa-fw fas fa-stream ml-xl-3 mr-xl-3 unloaded"></i>
         
@@ -390,8 +408,12 @@
 
         
 
+      
+
+        
+
           
-            <span>Categories</span>
+            <span>999. Typescript 에러 모음</span>
           
 
         
@@ -405,7 +427,7 @@
     <i id="sidebar-trigger" class="fas fa-bars fa-fw"></i>
 
     <div id="topbar-title">
-      Categories
+      Post
     </div>
 
     <i id="search-trigger" class="fas fa-search fa-fw"></i>
@@ -438,107 +460,305 @@
 
     
       
-      <h1 class="dynamic-title">
-        Categories
-      </h1>
-      <div class="post-content">
-        
+      
+        <!--
+  Refactor the HTML structure.
+-->
+
+
+
+<!--
+  In order to allow a wide table to scroll horizontally,
+  we suround the markdown table with `<div class="table-wrapper">` and `</div>`
+-->
+
+
+
+<!--
+  Fixed kramdown code highlight rendering:
+  https://github.com/penibelst/jekyll-compress-html/issues/101
+  https://github.com/penibelst/jekyll-compress-html/issues/71#issuecomment-188144901
+-->
+
+
+
+<!-- Add attribute 'hide-bullet' to the checkbox list -->
+
+
+
+<!-- images -->
+
+
+
+
+
+<!-- Add header for code snippets -->
+
+
+
+<!-- Create heading anchors -->
+
+
+
+
+
+  
+  
+
+  
+    
+    
+
+    
       
         
+        
+      
 
+      
+      
 
+      
+      
+      
+      
 
+      
 
+    
 
-
-
-
-
-
+    
 
   
-  
-  
 
-  
-
-  
   
   
 
   
     
+    
+
+    
+      
+        
+        
+      
+
+      
+      
+
+      
+      
+      
+      
+
+      
 
     
 
     
+
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+
+
+
+<!-- return -->
+
+
+
+
+
+
+
+<h1 data-toc-skip>999. Typescript 에러 모음</h1>
+
+<div class="post-meta text-muted">
+
+  <!-- author -->
+  <div>
+    
     
 
-  <div class="card categories">
-    <!-- top-category -->
-    <div id="h_0"
-      class="card-header d-flex justify-content-between hide-border-bottom">
+    
+
+    By
+    <em>
+      
+        <a href="https://twitter.com/username">your_full_name</a>
+      
+    </em>
+  </div>
+
+  <div class="d-flex">
+    <div>
+      <!-- published date -->
       <span>
-        <i class="far fa-folder-open fa-fw"></i>
+        Posted
+        <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/timeago.js
+-->
 
-        
-        <a href="/categories/typescript/" class="ml-1 mr-2">Typescript</a>
 
-        <!-- content count -->
-        
-        <span class="text-muted small font-weight-light">
-          
-            1
-            categories,
-          
-            13
-            posts
-        </span>
+
+
+
+<em class="timeago"
+    date="2022-01-14 00:00:00 +0800"
+    
+      data-toggle="tooltip"
+      data-placement="bottom"
+      title="Fri, Jan 14, 2022, 12:00 AM +0800"
+    >Jan 14</em>
+
       </span>
 
-      <!-- arrow -->
-      
-      <a href="#l_0" data-toggle="collapse"
-        aria-expanded="true" aria-label="h_0-trigger"
-        class="category-trigger hide-border-bottom">
-        <i class="fas fa-fw fa-angle-down"></i>
-      </a>
+      <!-- lastmod date -->
       
 
-    </div> <!-- .card-header -->
+      <!-- read time -->
+      <!--
+  Calculate the post's reading time, and display the word count in tooltip
+ -->
 
-    <!-- Sub-categories -->
-    
-    <div id="l_0" class="collapse show" aria-expanded="true">
-      <ul class="list-group">
-        
-        <li class="list-group-item">
-          <i class="far fa-folder fa-fw"></i>
 
-          
-          <a href="/categories/note/" class="ml-1 mr-2">Note</a>
 
-          
-          <span class="text-muted small font-weight-light">
-            1
-            posts
-          </span>
-        </li>
-        
-      </ul>
+<!-- words per minute  -->
+
+
+
+
+
+
+
+
+
+
+<!-- return element -->
+<span class="readtime" data-toggle="tooltip" data-placement="bottom"
+  title="30 words">
+  <em>1 min</em> read</span>
+
+
+      <!-- page views -->
+      
     </div>
+
+  </div> <!-- .d-flex -->
+
+</div> <!-- .post-meta -->
+
+<div class="post-content">
+  <h1 id="typescript-관련-컴파일-오류">Typescript 관련 컴파일 오류</h1>
+<h2 id="목록">목록 <a href="#목록" class="anchor"><i class="fas fa-hashtag"></i></a></h2></h2>
+<h3 id="cannot-find-module-typescript">Cannot find module ‘typescript’ <a href="#cannot-find-module-typescript" class="anchor"><i class="fas fa-hashtag"></i></a></h3></h3>
+<div class="language-plaintext highlighter-rouge"><div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre>https://stackoverflow.com/questions/44611526/how-to-fix-cannot-find-module-typescript-in-angular-4
+
+npm install -g typescript
+
+npm link typescript
+</pre></td></tr></tbody></table></code></div></div>
+<p><strong>Reference</strong> - https://grr1.tistory.com/42</p>
+
+</div>
+
+<div class="post-tail-wrapper text-muted">
+
+  <!-- categories -->
+  
+  <div class="post-meta mb-3">
+    <i class="far fa-folder-open fa-fw mr-1"></i>
     
-
-  </div> <!-- .card -->
-
-    
-
+      <a href='/categories/typescript/'>Typescript</a>,
+      <a href='/categories/note/'>Note</a>
+  </div>
   
 
+  <!-- tags -->
+  
+
+  <div class="post-tail-bottom
+    d-flex justify-content-between align-items-center mt-3 pt-5 pb-2">
+    <div class="license-wrapper">
+
+      
+
+        
+
+        This post is licensed under 
+        <a href="https://creativecommons.org/licenses/by/4.0/">
+          CC BY 4.0
+        </a>
+         by the author.
+
+      
+    </div>
+
+    <!--
+ Post sharing snippet
+-->
+
+<div class="share-wrapper">
+  <span class="share-label text-muted mr-1">Share</span>
+  <span class="share-icons">
+    
+    
+
+    
+      
+        <a href="https://twitter.com/intent/tweet?text=999. Typescript 에러 모음 - Chirpy&url=http://localhost:4000/posts/999.typescript_%EC%97%90%EB%9F%AC/" data-toggle="tooltip" data-placement="top"
+          title="Twitter" target="_blank" rel="noopener" aria-label="Twitter">
+          <i class="fa-fw fab fa-twitter"></i>
+        </a>
+    
+      
+        <a href="https://www.facebook.com/sharer/sharer.php?title=999. Typescript 에러 모음 - Chirpy&u=http://localhost:4000/posts/999.typescript_%EC%97%90%EB%9F%AC/" data-toggle="tooltip" data-placement="top"
+          title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
+          <i class="fa-fw fab fa-facebook-square"></i>
+        </a>
+    
+      
+        <a href="https://telegram.me/share?text=999. Typescript 에러 모음 - Chirpy&url=http://localhost:4000/posts/999.typescript_%EC%97%90%EB%9F%AC/" data-toggle="tooltip" data-placement="top"
+          title="Telegram" target="_blank" rel="noopener" aria-label="Telegram">
+          <i class="fa-fw fab fa-telegram"></i>
+        </a>
+    
+
+    <i id="copy-link" class="fa-fw fas fa-link small"
+        data-toggle="tooltip" data-placement="top"
+        title="Copy link"
+        title-succeed="Link copied successfully!">
+    </i>
+
+  </span>
+</div>
+
+
+  </div><!-- .post-tail-bottom -->
+
+</div><!-- div.post-tail-wrapper -->
+
 
       
     
-      </div>
     
 
     </div>
@@ -620,11 +840,384 @@
     </div>
 
     
+      
+      
+
+
+
+<!-- BS-toc.js will be loaded at medium priority -->
+<script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.js"></script>
+
+<div id="toc-wrapper" class="pl-0 pr-4 mb-5">
+  <div class="panel-heading pl-3 pt-2 mb-2">Contents</div>
+  <nav id="toc" data-toggle="toc"></nav>
+</div>
+
+
+    
   </div>
 
 </div>
 
 <!-- tail -->
+
+<div class="row">
+  <div class="col-12 col-lg-11 col-xl-8">
+    <div id="tail-wrapper" class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4">
+      
+        
+        <!--
+ Recommend the other 3 posts according to the tags and categories of the current post,
+ if the number is not enough, use the other latest posts to supplement.
+-->
+
+<!-- The total size of related posts  -->
+
+
+<!-- An random integer that bigger than 0  -->
+
+
+<!-- Equals to TAG_SCORE / {max_categories_hierarchy}  -->
+
+
+
+
+
+
+
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+<!-- Fill with the other newlest posts  -->
+
+
+
+
+
+
+  <div id="related-posts" class="mt-5 mb-2 mb-sm-4">
+    <h3 class="pt-2 mt-1 mb-4 ml-1"
+      data-toc-skip>Further Reading</h3>
+    <div class="card-deck mb-4">
+    
+      
+      
+      <div class="card">
+        <a href="/posts/03.signatures/">
+          <div class="card-body">
+            <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/timeago.js
+-->
+
+
+
+
+
+<em class="timeago small"
+    date="2022-01-14 00:00:00 +0800"
+    >Jan 14</em>
+
+            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>03. 시그니처</h3>
+            <div class="text-muted small">
+              <p>
+                
+
+
+
+
+
+                type DescribableFunction = {
+  description: string;
+  (someArg: number): boolean;
+};
+function doSomething(fn: DescribableFunction) {
+  console.log(fn.description + &quot; returned &quot; + fn(6));
+}
+
+위 예제는 처...
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="card">
+        <a href="/posts/04.generic/">
+          <div class="card-body">
+            <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/timeago.js
+-->
+
+
+
+
+
+<em class="timeago small"
+    date="2022-01-14 00:00:00 +0800"
+    >Jan 14</em>
+
+            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>04. 제네릭</h3>
+            <div class="text-muted small">
+              <p>
+                
+
+
+
+
+
+                Generic Function
+만약 당신이 Java를 익숙하게 사용하는 개발자라면 이 섹션은 이해하기 정말 쉬울 것이다. 다른 언어에서 흔히들 Generic이라고 부르는 것과 동일하기 때문이다.
+예를 들어, 당신이 Stack 자료구조를 직접 구현한다고 해보자.
+Stack에는 정말로 많은 Type의 데이터가 들어간다. Number String Boole...
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="card">
+        <a href="/posts/05.optional_parameters/">
+          <div class="card-body">
+            <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/timeago.js
+-->
+
+
+
+
+
+<em class="timeago small"
+    date="2022-01-14 00:00:00 +0800"
+    >Jan 14</em>
+
+            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>05. 필수가 아닌 파라미터</h3>
+            <div class="text-muted small">
+              <p>
+                
+
+
+
+
+
+                Optional Parameters
+Javascript에서는 함수의 선언부에서 표기 된 Parameters 갯수를 전부 충족시키지 않은 실행이 이루어져도 에러가 나지 않는다.
+const consolePrint = (a, b, c) =&amp;gt; {
+  console.log(a, b, c);
+};
+consolePrint(1, 2); // 1, 2, unde...
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+    
+    </div> <!-- .card-deck -->
+  </div> <!-- #related-posts -->
+
+
+      
+        
+        <!--
+  Navigation buttons at the bottom of the post.
+-->
+
+<div class="post-navigation d-flex justify-content-between">
+  
+  <a href="/posts/11.enum/" class="btn btn-outline-primary"
+    prompt="Older">
+    <p>11. 열거형</p>
+  </a>
+  
+
+  
+  <span class="btn btn-outline-primary disabled"
+    prompt="Newer">
+    <p>-</p>
+  </span>
+  
+
+</div>
+
+      
+        
+        <!--  The comments switcher -->
+
+
+      
+    </div>
+  </div>
+</div> <!-- .row -->
 
 
 
@@ -753,13 +1346,18 @@ SimpleJekyllSearch({
 <!-- layout specified -->
 
 
+  
+
+
+
+  <!-- image lazy-loading & popup -->
+  <script src="https://cdn.jsdelivr.net/combine/npm/lozad/dist/lozad.min.js,npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
 
 
 
 
 
-
-<script defer src="/assets/js/dist/categories.min.js"></script>
+<script defer src="/assets/js/dist/post.min.js"></script>
 
 
 
